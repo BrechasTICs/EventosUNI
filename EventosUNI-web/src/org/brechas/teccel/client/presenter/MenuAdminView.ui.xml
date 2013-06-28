@@ -1,0 +1,85 @@
+<!DOCTYPE ui:UiBinder SYSTEM "http://dl.google.com/gwt/DTD/xhtml.ent">
+
+<ui:UiBinder xmlns:ui='urn:ui:com.google.gwt.uibinder'
+	xmlns:g='urn:import:com.google.gwt.user.client.ui'
+	ui:generateFormat='com.google.gwt.i18n.rebind.format.PropertiesFormat'
+	ui:generateKeys='com.google.gwt.i18n.rebind.keygen.MD5KeyGenerator'
+	ui:generateLocales='default'>
+
+	<g:HTMLPanel width="200px" height="700px">
+		<g:StackLayoutPanel width="100%" unit="PX" height="100%">
+			<g:stack>
+				<g:header size="36">Perfil</g:header>
+				<g:Tree>
+						<g:Label text="Ver Perfil" ui:field="perfil"/>
+						<g:Label text="Actulizar datos"/>
+					</g:Tree>
+			</g:stack>
+			<g:stack>
+				<g:header size="36">Usuarios</g:header>
+				<g:Tree>
+					<g:TreeItem text="Nuevo Usuario" state="true">
+						<g:Label text="Alumno" ui:field="alumnoUsuario"/>
+						<g:Label text="Padre de Familia" ui:field="padreUsuario"/>
+						<g:Label text="Profesor" ui:field="profesorUsuario"/>
+						<g:Label text="Psicologo" ui:field="psicologoUsuario"/>
+					</g:TreeItem>
+					<g:TreeItem text="Nuevo Rol" state="true">
+						<g:Label text="Alumno" ui:field="alumnoRol"/>
+						<g:Label text="Padre de Familia" ui:field="padreRol"/>
+						<g:Label text="Profesor" ui:field="profesorRol"/>
+						<g:Label text="Psicologo" ui:field="psicologoRol"/>
+					</g:TreeItem>
+				</g:Tree>
+			</g:stack>
+			<g:stack>
+				<g:header size="36">Buscar</g:header>
+					<g:Tree>
+						<g:Label text="Alumno" ui:field="alumnoBuscar"/>
+						<g:Label text="Aula" ui:field="aulaBuscar"/>
+						<g:Label text="Avanzado" ui:field="avanzadoBuscar"/>
+					</g:Tree>
+			</g:stack>
+			<g:stack>
+				<g:header size="36">Academica</g:header>
+				<g:Tree>
+					<g:Label text="Aula" ui:field="aulaAcad"/>
+					<g:Label text="Curso" ui:field="cursoAcad"/>
+					<g:Label text="Asignar Cursos" ui:field="asigcursoAcad"/>
+					<g:Label text="Habilitar Curso" ui:field="habcursoAcad"/>
+					<g:Label text="Profesor" ui:field="profesorAcad"/>
+					<g:Label text="Nueva Aula" ui:field="newaulaAcad"/>
+					<g:Label text="Nuevo Grado" ui:field="newgradoAcad"/>
+					<g:Label text="Nueva Seccion" ui:field="newseccionAcad"/>
+					<g:Label text="Nuevo Periodo" ui:field="newperiodoAcad"/>
+					<g:Label text="Nuevo Curso" ui:field="newcursoAcad"/>
+				</g:Tree>
+			</g:stack>
+			<g:stack>
+				<g:header size="36">DeEvo</g:header>
+				<g:Tree>
+					<g:TreeItem text="Estados" state="true">
+							<g:Label text="Academico" ui:field="academicoEstado"/>
+							<g:Label text="Fisico" ui:field="fisicoEstado" styleName="labelunselect"/>
+							<g:Label text="Psicomotriz" ui:field="psicomotrizEstado"/>
+							<g:Label text="Por Aula" ui:field="aulaEstado"/>
+							<g:Label text="Por Grupo" ui:field="grupoEstado"/>
+						</g:TreeItem>
+						<g:TreeItem text="Estadisticas" state="true">
+							<g:Label text="Estadisticas" ui:field="estadisticas"/>
+						</g:TreeItem>
+						<g:TreeItem text="Evaluaciones" state="true">
+							<g:Label text="Eva. Incial" ui:field="inicialEvaluacion"/>
+							<g:Label text="Banco de Preguntas" ui:field="bpreguntasEvaluacion"/>
+							<g:Label text="Elaborar Prueba" ui:field="elabpruebaEvaluacion"/>
+							<g:Label text="Subir Respuestas" ui:field="srespuestasEvaluacion"/>
+						</g:TreeItem>
+						<g:TreeItem text="Alertas" state="true">
+							<g:Label text="Nueva Alerta" ui:field="nuevaAlerta"/>
+							<g:Label text="Bandeja de Alertas" ui:field="bandejaAlerta"/>
+						</g:TreeItem>
+				</g:Tree>
+			</g:stack>
+		</g:StackLayoutPanel>
+	</g:HTMLPanel>
+</ui:UiBinder>

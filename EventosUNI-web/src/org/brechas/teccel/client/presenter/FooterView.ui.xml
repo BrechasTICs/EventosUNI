@@ -1,0 +1,30 @@
+<!DOCTYPE ui:UiBinder SYSTEM "http://dl.google.com/gwt/DTD/xhtml.ent">
+
+<ui:UiBinder xmlns:ui='urn:ui:com.google.gwt.uibinder'
+	xmlns:g='urn:import:com.google.gwt.user.client.ui'
+	ui:generateFormat='com.google.gwt.i18n.rebind.format.PropertiesFormat'
+	ui:generateKeys='com.google.gwt.i18n.rebind.keygen.MD5KeyGenerator'
+	ui:generateLocales='default'>
+
+	<g:HTMLPanel styleName="fondoInicioSesion" width="980px">
+	<g:Grid width="980px" height="30px" styleName="fondoInicioSesion">
+		<g:row>
+			<g:customCell>
+				<g:Label text="DeEvo Software" styleName="labelLogin" width="677px"/>
+			</g:customCell>
+			<g:customCell>
+				<g:Label text="Acerca" styleName="labelFooter" width="70px"/>
+			</g:customCell>
+			<g:customCell>
+				<g:Label text="Contacto" width="70px" styleName="labelFooter" ui:field="label"/>
+			</g:customCell>
+			<g:customCell>
+				<g:Label text="Ayuda" styleName="labelFooter" width="70px"/>
+			</g:customCell>
+			<g:customCell>
+				<g:Label text="FAQ" width="70px" styleName="labelFooter"/>
+			</g:customCell>
+		</g:row>
+	</g:Grid>
+	</g:HTMLPanel>
+</ui:UiBinder>
