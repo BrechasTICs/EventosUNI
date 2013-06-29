@@ -1,0 +1,10 @@
+function rY(){}
+function sW(a,b){a.Wb(b)}
+function cY(a,b){nM.call(this,a,b)}
+function KW(a,b){return new cY(a,b)}
+function oY(){this.b=tY(new uY)}
+function uY(){this.b=oj($doc);this.c=new Cy(this.b)}
+function vY(a){var b;b=new YQ;b.b.b+=a1;XQ(b,uy(a));b.b.b+=b1;return new fy(b.b.b)}
+function GW(a){var b;!a.k&&(a.k=(b=KW((!a.b&&(a.b=new Tm),a.b),(!a.n&&(a.n=new oY(new rY)),a.n),!a.j&&(a.j=new hY)),sW(b,(!a.e&&(a.e=new UL),a.e)),b));return a.k}
+function tY(a){var b,c,d,e,f,g,h,i,j,k,l,m;c=new EF(vY(a.b).b);c.r.style[T0]=U0;c.r.style[V0]=U0;b=Ey(c.r);By(a.c);b.c?Oi(b.c,b.b,b.d):Gy(b.b);CF(c,(d=new rF,pF(d,1),qF(d,3),jF(d,0,0,(e=new xF,e.r[W0]='tituloHome',yE(e.b,'BIENVENIDO',false),e.r.style[T0]='36px',e.r.style[V0]=U0,e)),jF(d,1,0,(f=new rF,pF(f,1),qF(f,6),jF(f,0,0,(h=new xF,h.r[W0]=X0,yE(h.b,'\xBFQue es EventosUNI?',false),h)),jF(f,1,0,(i=new xF,i.r[W0]=Y0,yE(i.b,Z0,false),i)),jF(f,2,0,(j=new xF,j.r[W0]=X0,yE(j.b,'\xBFA quien esta dirigido?',false),j)),jF(f,3,0,(k=new xF,k.r[W0]=Y0,yE(k.b,Z0,false),k)),jF(f,4,0,(l=new xF,l.r[W0]=X0,yE(l.b,'\xBFPor que usar EventosUNI?',false),l)),jF(f,5,0,(m=new xF,m.r[W0]=Y0,yE(m.b,Z0,false),m)),f.r[W0]='cuadroBienvenida',f.r.style[T0]=U0,f.r.style[V0]=U0,f.g[$0]=2,f)),jF(d,2,0,(g=new QJ,g.r.style[T0]='15px',g.r.style[V0]=U0,g)),d.r[W0]=_0,d.r.style[T0]=U0,d.r.style[V0]=U0,d.g[$0]=3,d),By(a.c));return c}
+var Z0='Descripcion...',Y0='textBienvenido',X0='textsubBienvenido';ox(501,1,I_);_.jb=function hX(){qN(this.c,GW(this.b.b))};ox(519,403,y_,cY);_.Xb=function dY(){};_.Yb=function eY(){};_._b=function fY(){iM(this,new fP(($Y(),YY),this))};ox(522,407,{},oY);_.bc=function pY(){return this.b};_.b=null;ox(523,1,{},rY);ox(524,1,{},uY);_.b=null;_.c=null;var Yv=PP(M0,'HomePresenter',519),_v=PP(M0,'HomeView',522),$v=PP(M0,'HomeView_BinderImpl',523),Zv=PP(M0,'HomeView_BinderImpl$Widgets',524);L_(lh)(1);

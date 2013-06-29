@@ -19,6 +19,7 @@ import com.google.gwt.user.client.ui.Button;
 public class MainPresenter extends
 		Presenter<MainPresenter.MyView, MainPresenter.MyProxy> {
 
+	String email,nickname;
 	public interface MyView extends View {
 		public Button getHomeButton();
 	}
@@ -42,15 +43,6 @@ public class MainPresenter extends
 	@Override
 	protected void onBind() {
 		super.onBind();
-	}
-
-	@Inject
-	PlaceManager placeManager;
-	
-	@Override
-	protected void onReset() {
-		super.onReset();
-
 		getView().getHomeButton().addClickHandler(new ClickHandler() {
 			@Override
 			public void onClick(ClickEvent event) {
@@ -58,5 +50,19 @@ public class MainPresenter extends
 				placeManager.revealPlace(request);
 			}
 		});
+	}
+
+	@Inject
+	PlaceManager placeManager;
+	
+	@Override
+	protected void onReset() {
+		super.onReset();		
+	}
+
+	@Override
+	public void prepareFromRequest(PlaceRequest request) {
+		// TODO Auto-generated method stub
+		super.prepareFromRequest(request);
 	}
 }

@@ -1,4 +1,4 @@
-<%@page import="com.google.cloud.backend.config.ConfigurationServlet"%>
+<%@page import="org.brechas.teccel.server.config.ConfigurationServlet"%>
 <html>
 <head>
 <link rel='stylesheet' type='text/css' href='style.css' />

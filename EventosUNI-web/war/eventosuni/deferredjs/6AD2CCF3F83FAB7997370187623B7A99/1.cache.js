@@ -1,0 +1,10 @@
+function WY(){}
+function XW(a,b){a.$b(b)}
+function HY(a,b){QM.call(this,a,b)}
+function nX(a,b){return new HY(a,b)}
+function TY(){this.b=YY(new ZY)}
+function ZY(){this.b=Oj($doc);this.c=new dz(this.b)}
+function $Y(a){var b;b=new BR;b.b.b+=L1;AR(b,Xy(a));b.b.b+=M1;return new Iy(b.b.b)}
+function jX(a){var b;!a.k&&(a.k=(b=nX((!a.b&&(a.b=new rn),a.b),(!a.n&&(a.n=new TY(new WY)),a.n),!a.j&&(a.j=new MY)),XW(b,(!a.e&&(a.e=new vM),a.e)),b));return a.k}
+function YY(a){var b,c,d,e,f,g,h,i,j,k,l,m;c=new dG($Y(a.b).b);c.r.style[C1]=D1;c.r.style[E1]=D1;b=fz(c.r);cz(a.c);b.c?lj(b.c,b.b,b.d):hz(b.b);bG(c,(d=new SF,QF(d,1),RF(d,3),KF(d,0,0,(e=new YF,e.r[F1]='tituloHome',ZE(e.b,'BIENVENIDO',false),e.r.style[C1]='36px',e.r.style[E1]=D1,e)),KF(d,1,0,(f=new SF,QF(f,1),RF(f,6),KF(f,0,0,(h=new YF,h.r[F1]=G1,ZE(h.b,'\xBFQue es EventosUNI?',false),h)),KF(f,1,0,(i=new YF,i.r[F1]=H1,ZE(i.b,I1,false),i)),KF(f,2,0,(j=new YF,j.r[F1]=G1,ZE(j.b,'\xBFA quien esta dirigido?',false),j)),KF(f,3,0,(k=new YF,k.r[F1]=H1,ZE(k.b,I1,false),k)),KF(f,4,0,(l=new YF,l.r[F1]=G1,ZE(l.b,'\xBFPor que usar EventosUNI?',false),l)),KF(f,5,0,(m=new YF,m.r[F1]=H1,ZE(m.b,I1,false),m)),f.r[F1]='cuadroBienvenida',f.r.style[C1]=D1,f.r.style[E1]=D1,f.g[J1]=2,f)),KF(d,2,0,(g=new pK,g.r.style[C1]='15px',g.r.style[E1]=D1,g)),d.r[F1]=K1,d.r.style[C1]=D1,d.r.style[E1]=D1,d.g[J1]=3,d),cz(a.c));return c}
+var I1='Descripcion...',H1='textBienvenido',G1='textsubBienvenido';Rx(505,1,l0);_.jb=function MX(){SN(this.c,jX(this.b.b))};Rx(523,407,b0,HY);_._b=function IY(){};_.ac=function JY(){};_.dc=function KY(){LM(this,new HP((DZ(),BZ),this))};Rx(526,411,{},TY);_.fc=function UY(){return this.b};_.b=null;Rx(527,1,{},WY);Rx(528,1,{},ZY);_.b=null;_.c=null;var zw=pQ(v1,'HomePresenter',523),Cw=pQ(v1,'HomeView',526),Bw=pQ(v1,'HomeView_BinderImpl',527),Aw=pQ(v1,'HomeView_BinderImpl$Widgets',528);o0(oh)(1);

@@ -22,7 +22,8 @@ public class GuiceServletConfig extends GuiceServletContextListener {
 		return Guice.createInjector(
 				new ServerModule(), 
 				new DispatchServletModule(), 
-				new Module()
+				new Module(),
+				new AuthenticationModule()
 				);
 	}
 }
