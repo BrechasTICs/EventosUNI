@@ -1,0 +1,41 @@
+<!DOCTYPE ui:UiBinder SYSTEM "http://dl.google.com/gwt/DTD/xhtml.ent">
+
+<ui:UiBinder xmlns:ui='urn:ui:com.google.gwt.uibinder'
+	xmlns:g='urn:import:com.google.gwt.user.client.ui'
+	ui:generateFormat='com.google.gwt.i18n.rebind.format.PropertiesFormat'
+	ui:generateKeys='com.google.gwt.i18n.rebind.keygen.MD5KeyGenerator'
+	ui:generateLocales='default'>
+
+	<g:HTMLPanel width="200px" height="500px">
+		<g:StackLayoutPanel width="100%" unit="PX" height="100%">
+			<g:stack>
+				<g:header size="36">Inicio</g:header>
+				<g:Tree styleName="fondoBienvenida">
+						<g:Label text="Pagina de Inicio" styleName="textmenu"/>
+						<g:Label text="Iniciar Sesión" styleName="textmenu"/>
+					</g:Tree>
+			</g:stack>
+			<g:stack>
+				<g:header size="36">Acerca de Deevo</g:header>
+				<g:Tree styleName="fondoBienvenida">
+						<g:Label text="Quienes somos" styleName="textmenu"/>
+						<g:Label text="Misión / Visión" styleName="textmenu"/>
+						<g:Label text="Deeevo Software" styleName="textmenu"/>
+					</g:Tree>
+			</g:stack>
+			<g:stack>
+				<g:header size="36">I.E. Asociada</g:header>
+				<g:Tree styleName="fondoBienvenida">
+						<g:Label text="Nuestros Clientes" styleName= "textmenu"/>
+					</g:Tree>
+			</g:stack>
+			<g:stack>
+				<g:header size="36">Contáctenos</g:header>
+				<g:Tree styleName="fondoBienvenida">
+						<g:Label text="Adquirir Deevo software" styleName="textmenu"/>
+						<g:Label text="Consultas" styleName="textmenu"/>
+					</g:Tree>
+			</g:stack>
+		</g:StackLayoutPanel>
+	</g:HTMLPanel>
+</ui:UiBinder>
