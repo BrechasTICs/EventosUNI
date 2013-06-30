@@ -1,17 +1,8 @@
 package org.brechas.teccel.client.presenter;
 
-import java.lang.ProcessBuilder.Redirect;
-
 import org.brechas.teccel.client.action.SignInAction;
 import org.brechas.teccel.client.action.SignInActionResult;
-import org.brechas.teccel.client.place.NameTokens;
 
-import com.gwtplatform.dispatch.shared.DispatchAsync;
-import com.gwtplatform.mvp.client.PresenterWidget;
-import com.gwtplatform.mvp.client.View;
-import com.gwtplatform.mvp.client.proxy.PlaceManager;
-import com.gwtplatform.mvp.client.proxy.PlaceRequest;
-import com.google.inject.Inject;
 import com.google.gwt.core.client.GWT;
 import com.google.gwt.event.dom.client.ClickEvent;
 import com.google.gwt.event.dom.client.ClickHandler;
@@ -20,6 +11,11 @@ import com.google.gwt.user.client.Window;
 import com.google.gwt.user.client.rpc.AsyncCallback;
 import com.google.gwt.user.client.ui.Button;
 import com.google.gwt.user.client.ui.Label;
+import com.google.inject.Inject;
+import com.gwtplatform.dispatch.shared.DispatchAsync;
+import com.gwtplatform.mvp.client.PresenterWidget;
+import com.gwtplatform.mvp.client.View;
+import com.gwtplatform.mvp.client.proxy.PlaceManager;
 
 public class LoginPresenter extends PresenterWidget<LoginPresenter.MyView> {
 	String logouturl=GWT.getHostPageBaseURL();
@@ -65,11 +61,11 @@ public class LoginPresenter extends PresenterWidget<LoginPresenter.MyView> {
 			Window.alert("No pudo Iniciar sesión: "+ caught.getMessage());
 		};
 		public void onSuccess(SignInActionResult result) {
-			if(result.getEmail()==(null)){
-				redirect(result.getNickname());
+			if(result.getUser().getEmail()==(null)){
+				redirect(result.getUser().getLoginUrl());
 			}else{
-				getView().getNickname().setText(result.getNickname());
-				logouturl=result.getEmail();
+				getView().getNickname().setText(result.getUser().getEmail());
+				logouturl=result.getUser().getLogoutUrl();
 			}
 		}
 	};

@@ -16,7 +16,7 @@
 			<g:stack>
 				<g:header size="36">Eventos</g:header>
 				<g:Tree>
-					<g:Label text="Ingresar Eventos" />
+					<g:Label text="Publicar Eventos" />
 				</g:Tree>
 			</g:stack>
 			<g:stack>

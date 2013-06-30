@@ -14,7 +14,7 @@
  * the License.
  */
 
-package org.brechas.teccel.server.beans;
+package org.brechas.teccel.shared.entity;
 
 import java.io.Serializable;
 

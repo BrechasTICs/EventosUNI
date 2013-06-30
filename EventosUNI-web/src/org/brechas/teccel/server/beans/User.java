@@ -16,16 +16,30 @@
 
 package org.brechas.teccel.server.beans;
 
+import java.util.EnumSet;
+import java.util.Set;
+
+import org.brechas.teccel.server.entity.BaseEntity;
+import org.brechas.teccel.server.entity.Role;
+
 import com.googlecode.objectify.annotation.Entity;
 import com.googlecode.objectify.annotation.Index;
 
 @Entity
 public class User extends BaseEntity {
-    @Index
+    /**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
+
+	@Index
     private String googleId;
+
+    private Set<Role> roles;
 
     public User() {
         googleId = "";
+        roles=EnumSet.of(Role.GUEST);
     }
 
     public String getGoogleId() {
@@ -35,4 +49,12 @@ public class User extends BaseEntity {
     public void setGoogleId(String googleId) {
         this.googleId = googleId;
     }
+
+	public Set<Role> getRoles() {
+		return roles;
+	}
+
+	public void setRoles(Set<Role> roles) {
+		this.roles = roles;
+	}
 }

@@ -16,10 +16,11 @@
 
 package org.brechas.teccel.server.guice;
 
+
+import static com.google.inject.matcher.Matchers.*;
 import javax.inject.Singleton;
 
-import org.brechas.teccel.server.beans.CurrentUserDto;
-import org.brechas.teccel.server.spi.CurrentUserDtoProvider;
+import org.brechas.teccel.server.entity.CurrentUser;
 
 import com.google.inject.AbstractModule;
 import com.google.inject.servlet.RequestScoped;
@@ -27,7 +28,11 @@ import com.google.inject.servlet.RequestScoped;
 public class AuthenticationModule extends AbstractModule {
     @Override
     protected void configure() {
-        bind(CurrentUserDtoProvider.class).in(Singleton.class);
-        bind(CurrentUserDto.class).toProvider(CurrentUserDtoProvider.class).in(RequestScoped.class);
+        bind(CurrentUser.class).in(RequestScoped.class);
+        AuthInterceptor authInterceptor = new AuthInterceptor();
+        bindInterceptor(
+            any(),
+            annotatedWith(AuthRequired.class),
+            authInterceptor);
     }
 }

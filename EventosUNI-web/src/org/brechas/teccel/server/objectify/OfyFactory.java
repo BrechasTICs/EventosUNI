@@ -16,14 +16,32 @@
 
 package org.brechas.teccel.server.objectify;
 
+import org.brechas.teccel.server.entity.CurrentUser;
+
+import com.google.inject.Inject;
+import com.google.inject.Injector;
+import com.google.inject.Singleton;
 import com.googlecode.objectify.ObjectifyFactory;
 
+@Singleton
 public class OfyFactory extends ObjectifyFactory {
-    public OfyFactory() {
-    }
+	
+	@Inject private static Injector injector;
+	public OfyFactory() {
+		long time = System.currentTimeMillis();
 
-    @Override
-    public Ofy begin() {
-        return new Ofy(this);
-    }
+		this.register(CurrentUser.class);
+
+		long millis = System.currentTimeMillis() - time;
+	}
+
+	@Override
+	public <T> T construct(Class<T> type) {
+		return injector.getInstance(type);
+	}
+
+	@Override
+	public Ofy begin() {
+		return new Ofy(this);
+	}
 }

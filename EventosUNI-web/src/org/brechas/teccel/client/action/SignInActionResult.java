@@ -3,26 +3,27 @@ package org.brechas.teccel.client.action;
 import com.gwtplatform.dispatch.shared.Result;
 import java.lang.String;
 
+import org.brechas.teccel.server.entity.CurrentUser;
+import org.brechas.teccel.shared.entity.CurrentUserDto;
+
 public class SignInActionResult implements Result {
 
-	private String email;
-	private String nickname;
+	private CurrentUserDto user;
 
 	@SuppressWarnings("unused")
 	private SignInActionResult() {
 		// For serialization only
 	}
 
-	public SignInActionResult(String email, String nickname) {
-		this.email = email;
-		this.nickname = nickname;
+	public SignInActionResult(CurrentUserDto user) {
+		this.setUser(user);
 	}
 
-	public String getEmail() {
-		return email;
+	public CurrentUserDto getUser() {
+		return user;
 	}
 
-	public String getNickname() {
-		return nickname;
+	public void setUser(CurrentUserDto user) {
+		this.user = user;
 	}
 }

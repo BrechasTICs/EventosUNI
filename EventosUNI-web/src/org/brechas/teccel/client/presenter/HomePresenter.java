@@ -3,6 +3,8 @@ package org.brechas.teccel.client.presenter;
 import org.brechas.teccel.client.action.SignInAction;
 import org.brechas.teccel.client.action.SignInActionResult;
 import org.brechas.teccel.client.place.NameTokens;
+import org.brechas.teccel.server.entity.Role;
+import org.brechas.teccel.server.guice.AuthRequired;
 
 import com.gwtplatform.dispatch.shared.DispatchAsync;
 import com.gwtplatform.mvp.client.Presenter;
@@ -17,6 +19,7 @@ import com.google.gwt.event.shared.EventBus;
 import com.google.gwt.user.client.Window;
 import com.google.gwt.user.client.rpc.AsyncCallback;
 
+@AuthRequired(Role.PUBLISHER)
 public class HomePresenter extends
 		Presenter<HomePresenter.MyView, HomePresenter.MyProxy> {
 	
@@ -35,8 +38,6 @@ public class HomePresenter extends
 	}
 	@Inject
 	DispatchAsync dispatchAsync;
-	@Inject
-	SignInAction signInAction;
 
 	@Override
 	protected void revealInParent() {

@@ -16,25 +16,23 @@
 
 package org.brechas.teccel.server.objectify;
 
-import org.brechas.teccel.server.beans.User;
-
 import com.googlecode.objectify.Objectify;
-import com.googlecode.objectify.ObjectifyFactory;
 import com.googlecode.objectify.ObjectifyService;
 
 /**
- * For use of: import static com.sceneverse.shozon.server.dao.objectify.OfyService.ofy;
+ * For use of: import static
+ * com.sceneverse.shozon.server.dao.objectify.OfyService.ofy;
  */
 public class OfyService {
-    static {
-        factory().register(User.class);
-    }
+	static {
+		ObjectifyService.setFactory(new OfyFactory());
+	}
 
-    public static Objectify ofy() {
-        return ObjectifyService.ofy();
-    }
+	public static Objectify ofy() {
+		return (Ofy)ObjectifyService.ofy();
+	}
 
-    public static ObjectifyFactory factory() {
-        return ObjectifyService.factory();
-    }
+	public static OfyFactory factory() {
+		return (OfyFactory) ObjectifyService.factory();
+	}
 }
