@@ -17,11 +17,10 @@ gwt-unitCache/
 war/WEB-INF/deploy/
 war/WEB-INF/classes/
 war/WEB-INF/appgenine-generated/
-war/deevo/*.rpc
 
 .settings/
 unit/
-war/deevo
+war/eventosuni
 
 
 
