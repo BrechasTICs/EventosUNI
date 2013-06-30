@@ -59,7 +59,7 @@ public class LayoutPresenter extends
 		super.onReveal();
 
 		setInSlot(SLOT_SetLoginContent, loginPresenter);
-		setInSlot(SLOT_SetHeadContent, headPresenter);
+	//	setInSlot(SLOT_SetHeadContent, headPresenter);
 		setInSlot(SLOT_SetMenuContent, menuPresenter);
 		setInSlot(SLOT_SetFootContent, footPresenter);
 	}

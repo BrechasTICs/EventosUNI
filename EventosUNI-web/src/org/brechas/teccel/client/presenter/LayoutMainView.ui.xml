@@ -6,16 +6,16 @@
 	ui:generateKeys='com.google.gwt.i18n.rebind.keygen.MD5KeyGenerator'
 	ui:generateLocales='default'>
 
-	<g:HTMLPanel width="980px" height="100%" styleName="layout">
+	<g:HTMLPanel width="980px" height="100%">
 		<g:DockPanel width="100%" height="100%" horizontalAlignment="ALIGN_CENTER" verticalAlignment="ALIGN_TOP" borderWidth="1">
 			<g:Dock direction="NORTH" horizontalAlignment="ALIGN_CENTER" verticalAlignment="ALIGN_MIDDLE">
-				<g:VerticalPanel width="100%" styleName="layout">
+				<g:VerticalPanel width="100%">
 					<g:Cell horizontalAlignment="ALIGN_RIGHT">
 						<g:HTMLPanel ui:field="sesionContentPanel">
 						</g:HTMLPanel>
 					</g:Cell>
 					<g:Cell horizontalAlignment="ALIGN_CENTER">
-						<g:HTMLPanel ui:field="headContentPanel" styleName="layout">
+						<g:HTMLPanel ui:field="headContentPanel">
 						</g:HTMLPanel>
 					</g:Cell>
 				</g:VerticalPanel>

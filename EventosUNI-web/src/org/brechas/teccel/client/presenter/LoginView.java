@@ -4,6 +4,7 @@ import com.gwtplatform.mvp.client.ViewImpl;
 import com.google.gwt.uibinder.client.UiBinder;
 import com.google.gwt.uibinder.client.UiField;
 import com.google.gwt.user.client.ui.Button;
+import com.google.gwt.user.client.ui.Label;
 import com.google.gwt.user.client.ui.Widget;
 import com.google.inject.Inject;
 
@@ -13,8 +14,8 @@ public class LoginView extends ViewImpl implements LoginPresenter.MyView {
 
 	public interface Binder extends UiBinder<Widget, LoginView> {
 	}
-
 	@UiField Button loginButton;
+	@UiField Label nickname;
 	
 	@Inject
 	public LoginView(final Binder binder) {
@@ -28,6 +29,9 @@ public class LoginView extends ViewImpl implements LoginPresenter.MyView {
 
 	public Button getLoginButton() {
 		return loginButton;
+	}
+	public Label getNickname() {
+		return nickname;
 	}
 	
 }

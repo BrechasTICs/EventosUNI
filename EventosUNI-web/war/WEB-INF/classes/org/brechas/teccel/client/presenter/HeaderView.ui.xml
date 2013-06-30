@@ -6,7 +6,5 @@
 	ui:generateKeys='com.google.gwt.i18n.rebind.keygen.MD5KeyGenerator'
 	ui:generateLocales='default'>
 
-	<g:HTMLPanel styleName="fondoInicioSesion">
-	<g:Image url="images/banner.png"/>
-	</g:HTMLPanel>
+	<g:HTMLPanel styleName="header"/>
 </ui:UiBinder>

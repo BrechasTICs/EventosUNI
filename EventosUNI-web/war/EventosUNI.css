@@ -1,174 +1,42 @@
-.layout {
-	margin: auto;
+.sesion {
+	text-align: right;
+	background-color: #2d2d2d;
 }
-.labelEnlace {
-	color: whitesmoke;
-	font-size: 11px;
+.nickname-label {
+	color: White;
+	font-size: 16px;
+	font-family: DroidLogo;
 	vertical-align: top;
-	text-align: left;
-	text-decoration: underline;
-}
-.labelLogin {
-	color: White;
-	font-size: 13px;
-	font-style: normal;
-	font-family: Swiss921 BT;
-}
-.textBoxLogin {
-	border-right: ridge Silver;
-	border-left: ridge Silver;
-}
-.cuadroInicioSesion {
-	margin-right: 7px;
-	margin-left: 7px;
-	background-color: salmon;
-}
-.fondoInicioSesion {
-	background-color: salmon;
-}
-.botonInicio {
-	color: white;
-	border: 1px outset cadetblue;
-	font-size: 14px;
-	font-family: Swiss921 BT;
-	vertical-align: middle;
-	text-align: center;
-	background-color: cadetblue;
-	table-layout: auto;
-}
-.labelFooter {
-	color: White;
-	border-left: 1px outset #ff9999;
-	font-size: 14px;
-	font-family: Swiss921 BT;
-	text-align: center;
-}
-.labelSesion {
-	color: white;
-	border-right: 1px outset antiquewhite;
-	border-left: 1px inset antiquewhite;
-	font-size: 14px;
-	font-family: Swiss921 BT;
-	vertical-align: middle;
-	text-align: center;
-	background-color: salmon;
-}
-.layoutarriba {
-	margin-top: 1px;
-	table-layout: auto;
-	text-align: center;
-}
-.labelFormulario {
-	color: Teal;
-	margin-right: 5px;
-	font-size: 13px;
-	font-family: verdana;
 	text-align: right;
 }
-.tituloFormulario {
-	color: #000099;
-	margin-left: 5px;
-	font-size: 24px;
-	font-style: normal;
-	font-family: Swiss921 BT;
-}
-.labelsubformulario {
-	color: black;
-	margin: 10px 15px 5px;
-	font-size: 14px;
-	font-family: verdana;
-
-}
-.datePickerPreviousButton,
-.datePickerNextButton {
-  font-size: 120%;
-  line-height: 1em;
-  color: #3a6aad;
-  cursor: hand;
-  cursor: pointer;
-  font-weight: bold;
-  padding: 0px 4px;
-  outline: none;
-}
-.datePickerMonthSelector {
-  width: 100%;
-  padding: 1px 0 5px 0;
-  background: #fff;
-}
-.datePickerDay,
-.datePickerWeekendLabel {
-  font-size:85%;
-  text-align: center;
-  padding: 4px;
-  outline: none;
-  font-weight:bold;
-  color:#333;
-  border-right: 1px solid #EDEDED;
-  border-bottom: 1px solid #EDEDED;
-}
-.tituloHome {
-	color: #009999;
-	margin-left: 5px;
-	font-size: 24px;
-	font-style: normal;
-	font-family: Swiss921 BT;
-	text-align: center;
-}
-.cuadroBienvenida {
-	border: 3px dashed #996600;
-}
-.fondoBienvenida {
-	background-color: ivory;
-	table-layout: auto;
-}
-.textBienvenido {
-	color: #000099;
-	margin-right: 15px;
-	margin-left: 15px;
+.sesion-label {
+	color: White;
 	font-size: 16px;
-	font-style: normal;
-	font-family: Swiss921 BT;
-	text-align: justify;
-}
-.textsubBienvenido {
-	color: #009999;
-	margin-right: 15px;
-	margin-left: 15px;
-	font-size: 18px;
-	font-style: normal;
-	font-family: Swiss921 BT;
-	text-align: justify;
-}
-.textmenu {
-	color: Teal;
-	margin-right: 5px;
-	margin-left: 5px;
-	font-size: 16px;
-	font-style: normal;
-	font-family: Swiss921 BT;
-	text-align: justify;
-}
-.btnppimprimir {
-	text-align: center;
-}
-.labelFormularioAlerta {
-	color: red;
-	font-size: 14px;
-	font-family: verdana;
+	font-family: DroidLogo;
+	vertical-align: top;
 	text-align: left;
 }
-.cuadroBorde {
-	border: 3px dashed #996600;
+.logout-button {
+	color: Black;
+	border-top: dashed;
+	border-right: hidden;
+	border-bottom: dashed;
+	border-left: hidden;
+	font-size: 16px;
+	font-family: DroidLogo;
+	background-attachment: fixed;
+	background-color: #ffff66;
+	background-repeat: repeat-x;
 }
-.fondoperfilfoto {
+.global {
+	background-color: #fafaff;
+}
+.header {
+	vertical-align: middle;
 	text-align: center;
-	background-color: #009999;
-	table-layout: auto;
 }
-.labelunselect {
-}
-.labelselect {
-	background-color: peachpuff;
+.home {
+	background-color:#ffffff;	
 }
 /* Add css rules here for your application. */
 

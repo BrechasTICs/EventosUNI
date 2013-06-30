@@ -51,23 +51,5 @@ public class HomePresenter extends
 	@Override
 	protected void onReset() {
 		super.onReset();
-		signInAction.setRequest(GWT.getHostPageBaseURL());
-		dispatchAsync.execute(signInAction, signInActionCallback);
 	}
-	private AsyncCallback<SignInActionResult> signInActionCallback = new AsyncCallback<SignInActionResult>() {
-		public void onFailure(Throwable caught) {
-			Window.alert("No pudo Iniciar sesión: "+ caught.getMessage());
-		};
-		public void onSuccess(SignInActionResult result) {
-			if(result.getEmail()==(null)){
-				redirect(result.getNickname());
-			}else{
-				Window.alert("BIEN!");
-			}
-		}
-		native void redirect(String url)
-		/*-{
-		        $wnd.location.replace(url);
-		}-*/; 
-	};
 }

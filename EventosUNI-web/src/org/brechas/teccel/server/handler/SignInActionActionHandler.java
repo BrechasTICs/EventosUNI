@@ -25,16 +25,15 @@ public class SignInActionActionHandler implements
             UserService userService = UserServiceFactory.getUserService();
             User user = userService.getCurrentUser();
             LoginInfo loginInfo = new LoginInfo();
-
+            
             if (user != null) {
               loginInfo.setLoggedIn(true);
-              loginInfo.setEmailAddress(user.getEmail());
-              loginInfo.setNickname(user.getNickname());
-              loginInfo.setLogoutUrl(userService.createLogoutURL(action.getRequest()));
+              loginInfo.setNickname(user.getEmail());
+              loginInfo.setEmailAddress(userService.createLogoutURL(action.getRequest()));     
             } else {
               loginInfo.setLoggedIn(false);
-              loginInfo.setLoginUrl(userService.createLoginURL(action.getRequest()));
-              loginInfo.setNickname(loginInfo.getLoginUrl());
+              loginInfo.setNickname(userService.createLoginURL(action.getRequest()));
+              loginInfo.setEmailAddress(null);
             }
             
         return new SignInActionResult(loginInfo.getEmailAddress(), loginInfo.getNickname());

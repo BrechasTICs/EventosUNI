@@ -19,11 +19,21 @@ import com.google.gwt.event.shared.EventBus;
 import com.google.gwt.user.client.Window;
 import com.google.gwt.user.client.rpc.AsyncCallback;
 import com.google.gwt.user.client.ui.Button;
+import com.google.gwt.user.client.ui.Label;
 
 public class LoginPresenter extends PresenterWidget<LoginPresenter.MyView> {
-
+	String logouturl=GWT.getHostPageBaseURL();
+	ClickHandler logout = new ClickHandler() {
+		
+		@Override
+		public void onClick(ClickEvent event) {
+			// TODO Auto-generated method stub
+			redirect(logouturl);
+		}
+	};
 	public interface MyView extends View {
 		public Button getLoginButton();
+		public Label getNickname(); 
 	}
 
 	@Inject
@@ -34,13 +44,7 @@ public class LoginPresenter extends PresenterWidget<LoginPresenter.MyView> {
 	@Override
 	protected void onBind() {
 		super.onBind();
-		getView().getLoginButton().addClickHandler(new ClickHandler() {
-			@Override
-			public void onClick(ClickEvent event) {
-				PlaceRequest request = new PlaceRequest(NameTokens.main);
-				placeManager.revealPlace(request);
-			}
-		});
+		getView().getLoginButton().addClickHandler(logout);
 	}
 	
 	@Inject
@@ -53,9 +57,24 @@ public class LoginPresenter extends PresenterWidget<LoginPresenter.MyView> {
 	@Override
 	protected void onReset() {
 		super.onReset();
-	}
-	
-
-	
-
+		signInAction.setRequest(GWT.getHostPageBaseURL());
+		dispatchAsync.execute(signInAction, signInActionCallback);
+		}
+	private AsyncCallback<SignInActionResult> signInActionCallback = new AsyncCallback<SignInActionResult>() {
+		public void onFailure(Throwable caught) {
+			Window.alert("No pudo Iniciar sesión: "+ caught.getMessage());
+		};
+		public void onSuccess(SignInActionResult result) {
+			if(result.getEmail()==(null)){
+				redirect(result.getNickname());
+			}else{
+				getView().getNickname().setText(result.getNickname());
+				logouturl=result.getEmail();
+			}
+		}
+	};
+	native void redirect(String url)
+	/*-{
+	        $wnd.location.replace(url);
+	}-*/; 
 }

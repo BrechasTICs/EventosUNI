@@ -60,7 +60,7 @@
 				<g:Tree>
 					<g:TreeItem text="Estados" state="true">
 							<g:Label text="Academico" ui:field="academicoEstado"/>
-							<g:Label text="Fisico" ui:field="fisicoEstado" styleName="labelunselect"/>
+							<g:Label text="Fisico" ui:field="fisicoEstado"/>
 							<g:Label text="Psicomotriz" ui:field="psicomotrizEstado"/>
 							<g:Label text="Por Aula" ui:field="aulaEstado"/>
 							<g:Label text="Por Grupo" ui:field="grupoEstado"/>

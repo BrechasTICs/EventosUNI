@@ -7,7 +7,7 @@
 	ui:generateLocales='default'>
 
 	<g:HTMLPanel>
-	<g:Label text="Bienvenido al Main del Administrador" styleName="tituloFormulario"/>
+	<g:Label text="Bienvenido al Main del Administrador"/>
 	<g:Button text="Volver a Home" ui:field="homeButton"/>
 	</g:HTMLPanel>
 </ui:UiBinder>

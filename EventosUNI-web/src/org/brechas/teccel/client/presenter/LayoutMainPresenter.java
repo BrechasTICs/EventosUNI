@@ -31,7 +31,7 @@ public class LayoutMainPresenter extends
 	
 
 	@Inject
-	SesionPresenter sesionPresenter;
+	LoginPresenter loginPresenter;
 	
 	@Inject
 	HeaderPresenter headPresenter;
@@ -59,7 +59,7 @@ public class LayoutMainPresenter extends
 	protected void onReveal() {
 		super.onReveal();
 
-		setInSlot(SLOT_SetSesionContent, sesionPresenter);
+		setInSlot(SLOT_SetSesionContent, loginPresenter);
 		setInSlot(SLOT_SetHeadContent, headPresenter);
 		setInSlot(SLOT_SetMenuContent, menuPresenter);
 		setInSlot(SLOT_SetFootContent, footPresenter);

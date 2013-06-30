@@ -6,29 +6,35 @@
 	ui:generateKeys='com.google.gwt.i18n.rebind.keygen.MD5KeyGenerator'
 	ui:generateLocales='default'>
 
-	<g:HTMLPanel width="980px" height="100%" styleName="layout">
-		<g:DockPanel width="100%" height="100%" horizontalAlignment="ALIGN_CENTER" verticalAlignment="ALIGN_TOP" borderWidth="1">
-			<g:Dock direction="NORTH" horizontalAlignment="ALIGN_CENTER" verticalAlignment="ALIGN_MIDDLE">
-				<g:VerticalPanel width="100%" styleName="layout">
-					<g:Cell horizontalAlignment="ALIGN_RIGHT">
-						<g:HTMLPanel ui:field="loginContentPanel">
+	<g:HTMLPanel width="100%" height="100%" styleName="global">
+		<g:DockPanel width="100%" height="100%" horizontalAlignment="ALIGN_CENTER" verticalAlignment="ALIGN_TOP" borderWidth="0">
+			<g:Dock direction="NORTH">
+				<g:HTMLPanel ui:field="loginContentPanel" width="100%">
 						</g:HTMLPanel>
-					</g:Cell>
-					<g:Cell horizontalAlignment="ALIGN_CENTER">
-						<g:HTMLPanel ui:field="headContentPanel" styleName="layout">
-						</g:HTMLPanel>
-					</g:Cell>
-				</g:VerticalPanel>
 			</g:Dock>
 			<g:Dock direction="SOUTH">
-				<g:HTMLPanel ui:field="footContentPanel" height="30px">
+				<g:HTMLPanel ui:field="footContentPanel" height="15" width="100%">
 				</g:HTMLPanel>
 			</g:Dock>
-			<g:Dock direction="WEST" width="200px" height="100%">
-				<g:HTMLPanel ui:field="menuContentPanel"/>
-			</g:Dock>
-			<g:Dock direction="CENTER">  
-				<g:HTMLPanel ui:field="mainContentPanel" height="400px"/>
+			<g:Dock direction="CENTER">
+				<g:DockPanel spacing="10" width="100%" height="90%" horizontalAlignment="ALIGN_CENTER">
+					<g:Dock direction="NORTH">
+						<g:HTMLPanel ui:field="headContentPanel" width="50%" styleName="header">
+						<g:Image url="images/banner.png" width="100%" height="30%" altText="EVENTOSUNI"/>
+						</g:HTMLPanel>
+					</g:Dock>
+					<g:Dock direction="CENTER">
+						<g:HTMLPanel ui:field="mainContentPanel" height="80%" width="80%"/>
+					</g:Dock>
+					<g:Dock direction="WEST">
+						<g:VerticalPanel width="20%" height="50%">
+							<g:HTMLPanel ui:field="menuContentPanel" height="25%" width="20%"/>
+							<g:HTMLPanel height="20%" width="20%">
+							<g:Image url="images/logopeque.png" width="150" height="40%" altText="EVENTOSUNI"/>
+							</g:HTMLPanel>
+						</g:VerticalPanel>
+					</g:Dock>
+				</g:DockPanel>
 			</g:Dock>			
 		</g:DockPanel>
 	</g:HTMLPanel>

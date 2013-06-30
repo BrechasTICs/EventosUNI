@@ -24,8 +24,6 @@ import org.brechas.teccel.client.presenter.MenuAdminPresenter;
 import org.brechas.teccel.client.presenter.MenuAdminView;
 import org.brechas.teccel.client.presenter.MenuHomePresenter;
 import org.brechas.teccel.client.presenter.MenuHomeView;
-import org.brechas.teccel.client.presenter.SesionPresenter;
-import org.brechas.teccel.client.presenter.SesionView;
 
 public class ClientModule extends AbstractPresenterModule {
 
@@ -60,9 +58,6 @@ public class ClientModule extends AbstractPresenterModule {
 		bindPresenterWidget(MenuAdminPresenter.class,
 				MenuAdminPresenter.MyView.class, MenuAdminView.class);
 	
-		bindPresenterWidget(SesionPresenter.class,
-				SesionPresenter.MyView.class, SesionView.class);
-		
 		bindPresenterWidget(MenuHomePresenter.class,
 				MenuHomePresenter.MyView.class, MenuHomeView.class);
 

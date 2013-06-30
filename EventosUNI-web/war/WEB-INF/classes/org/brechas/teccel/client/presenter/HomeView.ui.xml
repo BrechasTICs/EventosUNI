@@ -6,44 +6,44 @@
 	ui:generateKeys='com.google.gwt.i18n.rebind.keygen.MD5KeyGenerator'
 	ui:generateLocales='default'>
 
-	<g:HTMLPanel width="100%" height="100%">
-		<g:Grid width="100%" height="100%" styleName="fondoBienvenida" cellPadding="3">
+	<g:HTMLPanel width="100%" height="100%" styleName="home">
+		<g:Grid width="100%" height="100%" cellPadding="3">
 			<g:row>
 				<g:customCell>
-					<g:Label text="BIENVENIDO" height="36px" styleName="tituloHome" width="100%"/>
+					<g:Label text="BIENVENIDO" height="36px" width="100%"/>
 				</g:customCell>
 			</g:row>
 			<g:row>
 				<g:customCell>
-					<g:Grid width="100%" height="100%" styleName="cuadroBienvenida" cellPadding="2">
+					<g:Grid width="100%" height="100%" cellPadding="2">
 						<g:row>
 							<g:customCell>
-								<g:Label text="¿Que es EventosUNI?" styleName="textsubBienvenido"/>
+								<g:Label text="¿Que es EventosUNI?"/>
 							</g:customCell>
 						</g:row>
 						<g:row>
 							<g:customCell>
-								<g:Label text="Descripcion..." styleName="textBienvenido"/>
+								<g:Label text="Descripcion..." />
 							</g:customCell>
 						</g:row>
 						<g:row>
 							<g:customCell>
-								<g:Label styleName="textsubBienvenido" text="¿A quien esta dirigido?"/>
+								<g:Label text="¿A quien esta dirigido?"/>
 							</g:customCell>
 						</g:row>
 						<g:row>
 							<g:customCell>
-								<g:Label styleName="textBienvenido" text="Descripcion..."/>
+								<g:Label text="Descripcion..."/>
 							</g:customCell>
 						</g:row>
 						<g:row>
 							<g:customCell>
-								<g:Label styleName="textsubBienvenido" text="¿Por que usar EventosUNI?"/>
+								<g:Label text="¿Por que usar EventosUNI?"/>
 							</g:customCell>
 						</g:row>
 						<g:row>
 							<g:customCell>
-								<g:Label styleName="textBienvenido" text="Descripcion..."/>
+								<g:Label text="Descripcion..."/>
 							</g:customCell>
 						</g:row>
 					</g:Grid>
