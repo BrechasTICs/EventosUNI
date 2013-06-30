@@ -4,22 +4,22 @@
 	xmlns:g='urn:import:com.google.gwt.user.client.ui'
 	ui:generateFormat='com.google.gwt.i18n.rebind.format.PropertiesFormat'
 	ui:generateKeys='com.google.gwt.i18n.rebind.keygen.MD5KeyGenerator'
-	ui:generateLocales='default'>
+	ui:generateLocales='default' xmlns:o="urn:import:org.apache.xpath.operations" xmlns:d="urn:import:com.google.gwt.dom.client">
 
-	<g:HTMLPanel width="100%" styleName="sesion" height="15">
-	<g:Grid width="100%" height="15">
+	<g:HTMLPanel width="100%" styleName="sesion" height="100%">
+	<g:Grid width="60%" height="100%">
 		<g:row>
 			<g:customCell>
-				<g:Label text="Acerca" width="70px"/>
+				<g:Label text="Acerca" width="70px" styleName="sesion-label" horizontalAlignment="ALIGN_CENTER"/>
 			</g:customCell>
 			<g:customCell>
-				<g:Label text="Contacto" width="70px" ui:field="label"/>
+				<g:Label text="Contacto" width="70px" ui:field="label" styleName="sesion-label" horizontalAlignment="ALIGN_CENTER"/>
 			</g:customCell>
 			<g:customCell>
-				<g:Label text="Ayuda" width="70px"/>
+				<g:Label text="Ayuda" width="70px" styleName="sesion-label" horizontalAlignment="ALIGN_CENTER"/>
 			</g:customCell>
 			<g:customCell>
-				<g:Label text="FAQ" width="70px" />
+				<g:Label text="FAQ" width="70px" styleName="sesion-label" horizontalAlignment="ALIGN_CENTER"/>
 			</g:customCell>
 		</g:row>
 	</g:Grid>

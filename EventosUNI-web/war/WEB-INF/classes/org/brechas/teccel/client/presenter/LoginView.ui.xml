@@ -9,7 +9,7 @@
 		<g:Grid width="100%" height="15" >
 			<g:row>
 				<g:customCell>
-					<g:Label text="EventosUNI" ui:field="sesion" styleName="sesion-label" height="15" width="70%" horizontalAlignment="ALIGN_LEFT"/>
+					<g:Label text="EventosUNI" ui:field="sesion" styleName="sesion-label" height="15" width="80%" horizontalAlignment="ALIGN_LEFT"/>
 				</g:customCell>
 				<g:customCell>
 					<g:Label text="Anónimo" ui:field="nickname" styleName="nickname-label" height="15" horizontalAlignment="ALIGN_RIGHT"/>
