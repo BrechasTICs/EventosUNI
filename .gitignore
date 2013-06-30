@@ -6,21 +6,21 @@
 *.war
 
 # gwt caches and compiled units #
-war/gwt_bree/
-gwt-unitCache/
-.gwt/
+*war/gwt_bree/
+*gwt-unitCache/
+*.gwt/
 
 # boilerplate generated classes #
-.apt_generated/
+*.apt_generated/
 
 # more caches and things from deploy #
-war/WEB-INF/deploy/
-war/WEB-INF/classes/
-war/WEB-INF/appgenine-generated/
+*war/WEB-INF/deploy/
+*war/WEB-INF/classes/
+*war/WEB-INF/appgenine-generated/
 
 .settings/
-unit/
-war/eventosuni
+*unit/
+*war/eventosuni
 
 
 
