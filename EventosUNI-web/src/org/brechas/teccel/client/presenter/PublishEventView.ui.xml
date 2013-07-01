@@ -1,0 +1,141 @@
+<!DOCTYPE ui:UiBinder SYSTEM "http://dl.google.com/gwt/DTD/xhtml.ent">
+
+<ui:UiBinder xmlns:ui='urn:ui:com.google.gwt.uibinder'
+	xmlns:g='urn:import:com.google.gwt.user.client.ui' ui:generateFormat='com.google.gwt.i18n.rebind.format.PropertiesFormat'
+	ui:generateKeys='com.google.gwt.i18n.rebind.keygen.MD5KeyGenerator' xmlns:w="urn:import:com.google.gwt.widget.client"
+	ui:generateLocales='default' xmlns:p1="urn:import:com.google.gwt.user.cellview.client">
+
+	<g:HTMLPanel>
+		<g:VerticalPanel width="100%">
+			<g:FormPanel ui:field="formOrganizador">
+				<g:SimplePanel ui:field="flexOrganizador" />
+			</g:FormPanel>
+			<g:FormPanel>
+			<w:TextButton ui:field="agregarOrganizador">Agregar Organizador</w:TextButton>
+			</g:FormPanel>
+			<g:FormPanel ui:field="formEvento" width="100%">
+				<g:VerticalPanel>
+					<g:Grid width="100%" height="100%">
+						<g:row>
+							<g:customCell>
+								<g:Label text="Nombre del Evento" width="100"
+									horizontalAlignment="ALIGN_RIGHT" />
+							</g:customCell>
+							<g:customCell>
+								<g:TextBox alignment="LEFT" ui:field="nombreEvento" />
+							</g:customCell>
+						</g:row>
+						<g:row>
+							<g:customCell>
+								<g:Label text="Descripcion del Evento"
+									horizontalAlignment="ALIGN_RIGHT" width="100" />
+							</g:customCell>
+							<g:customCell>
+								<g:TextArea alignment="LEFT" width="400" ui:field="descripcionEvento" />
+							</g:customCell>
+						</g:row>
+						<g:row>
+							<g:customCell>
+								<g:Label text="Tipo de Evento" horizontalAlignment="ALIGN_RIGHT"
+									width="100" />
+							</g:customCell>
+							<g:customCell>
+								<g:ListBox ui:field="tipoEvento">
+									<g:item>
+										Academico
+									</g:item>
+									<g:item>
+										Cultural
+									</g:item>
+									<g:item>
+										Social
+									</g:item>
+									<g:item>
+										Deportivo
+									</g:item>
+									<g:item>
+										Recreativo
+									</g:item>
+									<g:item>
+										Mixto
+									</g:item>
+								</g:ListBox>
+							</g:customCell>
+						</g:row>
+						<g:row>
+							<g:customCell>
+								<g:Label text="Seleccione" ui:field="tipoEventoM" visible="false"/>
+							</g:customCell>
+							<g:customCell>
+								<g:ListBox visibleItemCount="5" multipleSelect="true" visible="false" ui:field="tipoEventoN"/>
+							</g:customCell>
+						</g:row>
+						<g:row>
+							<g:customCell>
+								<g:Label text="Estado de Evento" horizontalAlignment="ALIGN_RIGHT"
+									width="100" />
+							</g:customCell>
+							<g:customCell>
+								<g:ListBox ui:field="estadoEvento">
+									<g:item>
+										Programado
+									</g:item>
+									<g:item>
+										Iniciado
+									</g:item>
+									<g:item>
+										Suspendido
+									</g:item>
+									<g:item>
+										Terminado
+									</g:item>
+								</g:ListBox>
+							</g:customCell>
+						</g:row>
+					</g:Grid>
+					<g:DisclosurePanel width="100%">
+						<g:header>+Detalles</g:header>
+						<g:Grid>
+							<g:row>
+								<g:customCell>
+									<g:Label text="Requisitos del Evento"
+										horizontalAlignment="ALIGN_RIGHT" width="100" />
+								</g:customCell>
+								<g:customCell>
+									<g:TextArea alignment="LEFT" width="400" ui:field="requisitoEvento" />
+								</g:customCell>
+							</g:row>
+							<g:row>
+								<g:customCell>
+									<g:Label text="Afiche" horizontalAlignment="ALIGN_RIGHT"
+										width="100" />
+								</g:customCell>
+								<g:customCell>
+									<g:FileUpload ui:field="imagenEvento" />
+								</g:customCell>
+							</g:row>
+							<g:row>
+								<g:customCell>
+									<g:Label text="Observaciones" horizontalAlignment="ALIGN_RIGHT"
+										width="100" />
+								</g:customCell>
+								<g:customCell>
+									<g:TextArea alignment="LEFT" width="400" ui:field="observacionEvento"/>
+								</g:customCell>
+							</g:row>
+						</g:Grid>
+					</g:DisclosurePanel>
+				</g:VerticalPanel>
+			</g:FormPanel>
+			<g:FormPanel ui:field="formActividad">
+				<g:SimplePanel ui:field="flexActividad" />
+			</g:FormPanel>
+			<g:FormPanel>
+			<w:TextButton ui:field="agregarActividad">Agregar Actividad</w:TextButton>
+			</g:FormPanel>
+			<g:FormPanel>
+				<g:Button text="Publicar"/>
+			</g:FormPanel>
+		</g:VerticalPanel>
+	</g:HTMLPanel>
+</ui:UiBinder>

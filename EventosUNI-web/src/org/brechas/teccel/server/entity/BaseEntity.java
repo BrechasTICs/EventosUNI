@@ -18,14 +18,12 @@ package org.brechas.teccel.server.entity;
 
 import java.util.Date;
 
-import java.util.HashMap;
-import java.util.Map;
-
 import org.brechas.teccel.server.beans.EntityDto;
 import org.brechas.teccel.shared.entity.Dto;
 
-import com.googlecode.objectify.annotation.Entity;
+import com.google.inject.Inject;
 import com.googlecode.objectify.annotation.Id;
+import com.googlecode.objectify.annotation.Ignore;
 
 public abstract class BaseEntity implements Dto {
     /**
@@ -50,6 +48,16 @@ public abstract class BaseEntity implements Dto {
 	private String _owner;
 
     protected BaseEntity() {
+    }
+
+    public void start(){
+    	set_createdAt(new Date());
+		set_updatedAt(new Date());
+    }
+    public void up(CurrentUser user){
+		set_createdBy(user.getEmail());
+		set_owner(user.getUserId());
+		set_updatedBy(user.getEmail());
     }
     
     public BaseEntity(String _kindName) {

@@ -16,7 +16,14 @@
 
 package org.brechas.teccel.server.objectify;
 
+import org.brechas.teccel.server.entity.Actividad;
+import org.brechas.teccel.server.entity.Contacto;
 import org.brechas.teccel.server.entity.CurrentUser;
+import org.brechas.teccel.server.entity.Evento;
+import org.brechas.teccel.server.entity.Lugar;
+import org.brechas.teccel.server.entity.Organizador;
+import org.brechas.teccel.server.entity.Tiempo;
+import org.brechas.teccel.server.entity.TipoEvento;
 
 import com.google.inject.Inject;
 import com.google.inject.Injector;
@@ -29,9 +36,14 @@ public class OfyFactory extends ObjectifyFactory {
 	@Inject private static Injector injector;
 	public OfyFactory() {
 		long time = System.currentTimeMillis();
-
 		this.register(CurrentUser.class);
-
+		this.register(Actividad.class);
+		this.register(Contacto.class);
+		this.register(Organizador.class);
+		this.register(Tiempo.class);
+		this.register(Lugar.class);
+		this.register(Evento.class);
+		this.register(TipoEvento.class);
 		long millis = System.currentTimeMillis() - time;
 	}
 

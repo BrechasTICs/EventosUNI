@@ -16,10 +16,6 @@
 
 package org.brechas.teccel.shared.entity;
 
-
-import com.googlecode.objectify.annotation.Entity;
-
-@Entity
 public class CurrentUserDto implements Dto {
 	/**
 	 * 

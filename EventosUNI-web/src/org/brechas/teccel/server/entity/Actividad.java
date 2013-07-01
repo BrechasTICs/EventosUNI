@@ -1,31 +1,58 @@
 package org.brechas.teccel.server.entity;
 
-import java.io.Serializable;
-import java.lang.String;
-import java.lang.Integer;
-import java.util.ArrayList;
-import java.util.List;
+import java.util.UUID;
 
+import org.brechas.teccel.shared.entity.ActividadDto;
 
 import com.googlecode.objectify.Ref;
 import com.googlecode.objectify.annotation.Entity;
-import com.googlecode.objectify.annotation.Id;
+import com.googlecode.objectify.annotation.Index;
 import com.googlecode.objectify.annotation.Load;
+
+
 @Entity
 public class Actividad extends BaseEntity {
 
+	private static final String CLOUD_ENTITY_ID_PREFIX="CE:";
 	private static final long serialVersionUID = 5855797850227150066L;
-
-    @Id Long id;
-
-	private String nombre;
+	
+    private String nombre;
 	private String descripcion;
-	private String estado;
+	@Index private String estado;
 	private Integer capacidad;
-	@Load Ref<Lugar> lugar;
-	@Load Ref<Tiempo> tiempo;
-
+	@Load private Ref<Lugar> lugar;
+	@Load private Ref<Tiempo> tiempo;
+	
+	public Ref<Lugar> getLugar() {
+		return lugar;
+	}
+	public void setLugar(Ref<Lugar> lugar) {
+		this.lugar = lugar;
+	}
+	public Ref<Tiempo> getTiempo() {
+		return tiempo;
+	}
+	public void setTiempo(Ref<Tiempo> tiempo) {
+		this.tiempo = tiempo;
+	}
 	public Actividad() {
+		start();
+		set_kindName("Actividad");
+	}
+	public ActividadDto getDto(){
+		ActividadDto dto = new ActividadDto();
+		dto.setNombre(nombre);
+		dto.setCapacidad(capacidad);
+		dto.setDescripcion(descripcion);
+		dto.setEstado(estado);
+		return dto;
+	}
+	public void setDto(ActividadDto dto){
+		id=CLOUD_ENTITY_ID_PREFIX+UUID.fromString(nombre+get_createdAt()).toString();
+		nombre=dto.getNombre();
+		capacidad=dto.getCapacidad();
+		descripcion=dto.getDescripcion();
+		estado=dto.getEstado();
 	}
 
 	public void setNombre(String nombre) {

@@ -1,25 +1,16 @@
 package org.brechas.teccel.client.presenter;
 
-import org.brechas.teccel.client.action.SignInAction;
-import org.brechas.teccel.client.action.SignInActionResult;
 import org.brechas.teccel.client.place.NameTokens;
-import org.brechas.teccel.server.entity.Role;
-import org.brechas.teccel.server.guice.AuthRequired;
 
-import com.gwtplatform.dispatch.shared.DispatchAsync;
+import com.google.gwt.event.shared.EventBus;
+import com.google.inject.Inject;
 import com.gwtplatform.mvp.client.Presenter;
 import com.gwtplatform.mvp.client.View;
-import com.gwtplatform.mvp.client.annotations.ProxyCodeSplit;
 import com.gwtplatform.mvp.client.annotations.NameToken;
+import com.gwtplatform.mvp.client.annotations.ProxyCodeSplit;
 import com.gwtplatform.mvp.client.proxy.ProxyPlace;
 import com.gwtplatform.mvp.client.proxy.RevealContentEvent;
-import com.google.inject.Inject;
-import com.google.gwt.core.client.GWT;
-import com.google.gwt.event.shared.EventBus;
-import com.google.gwt.user.client.Window;
-import com.google.gwt.user.client.rpc.AsyncCallback;
 
-@AuthRequired(Role.PUBLISHER)
 public class HomePresenter extends
 		Presenter<HomePresenter.MyView, HomePresenter.MyProxy> {
 	
@@ -36,8 +27,6 @@ public class HomePresenter extends
 			final MyProxy proxy) {
 		super(eventBus, view, proxy);
 	}
-	@Inject
-	DispatchAsync dispatchAsync;
 
 	@Override
 	protected void revealInParent() {

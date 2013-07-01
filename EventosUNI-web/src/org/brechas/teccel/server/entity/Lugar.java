@@ -1,38 +1,62 @@
 package org.brechas.teccel.server.entity;
 
-import java.io.Serializable;
 import java.lang.String;
+import java.util.UUID;
 
+import org.brechas.teccel.shared.entity.LugarDto;
 
 import com.googlecode.objectify.annotation.Entity;
-import com.googlecode.objectify.annotation.Id;
+import com.googlecode.objectify.annotation.Index;
 @Entity
 public class Lugar extends BaseEntity {
-
+	private static final String CLOUD_ENTITY_ID_PREFIX="CE:";
 	private static final long serialVersionUID = 9079405720737344230L;
 
-    @Id Long id;
-
-	private String Pais;
-	private String Region;
-	private String Provincia;
+    private String pais;
+	private String region;
+	private String provincia;
 	private String distrito;
 	private String direccion;
 	private String referencia;
+	@Index private boolean universidad;
 
 	public Lugar() {
+		start();
+		set_kindName("Lugar");
+	}
+	public LugarDto getDto(){
+		LugarDto dto = new LugarDto();
+		dto.setDireccion(direccion);
+		dto.setDistrito(distrito);
+		dto.setPais(pais);
+		dto.setProvincia(provincia);
+		dto.setReferencia(referencia);
+		dto.setRegion(region);
+		dto.setUniversidad(universidad);
+		return dto;
+	}
+	public void setDto(LugarDto dto){
+		direccion=dto.getDireccion();
+		distrito=dto.getDistrito();
+		pais=dto.getPais();
+		provincia=dto.getProvincia();
+		referencia=dto.getReferencia();
+		region=dto.getRegion();
+		universidad=dto.isUniversidad();
+		id=CLOUD_ENTITY_ID_PREFIX+UUID.fromString(referencia+get_createdAt()).toString();
+		
 	}
 
-	public void setPais(String Pais) {
-		this.Pais = Pais;
+	public void setPais(String pais) {
+		this.pais = pais;
 	}
 
-	public void setRegion(String Region) {
-		this.Region = Region;
+	public void setRegion(String region) {
+		this.region = region;
 	}
 
-	public void setProvincia(String Provincia) {
-		this.Provincia = Provincia;
+	public void setProvincia(String provincia) {
+		this.provincia = provincia;
 	}
 
 	public void setDistrito(String distrito) {
@@ -48,15 +72,15 @@ public class Lugar extends BaseEntity {
 	}
 
 	public String getPais() {
-		return Pais;
+		return pais;
 	}
 
 	public String getRegion() {
-		return Region;
+		return region;
 	}
 
 	public String getProvincia() {
-		return Provincia;
+		return provincia;
 	}
 
 	public String getDistrito() {
@@ -69,5 +93,11 @@ public class Lugar extends BaseEntity {
 
 	public String getReferencia() {
 		return referencia;
+	}
+	public boolean isUniversidad() {
+		return universidad;
+	}
+	public void setUniversidad(boolean universidad) {
+		this.universidad = universidad;
 	}
 }

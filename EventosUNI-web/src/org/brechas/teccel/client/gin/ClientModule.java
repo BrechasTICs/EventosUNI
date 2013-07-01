@@ -18,6 +18,16 @@ import org.brechas.teccel.client.presenter.LoginPresenter;
 import org.brechas.teccel.client.presenter.LoginView;
 import org.brechas.teccel.client.presenter.MenuHomePresenter;
 import org.brechas.teccel.client.presenter.MenuHomeView;
+import org.brechas.teccel.client.presenter.PublishEventPresenter;
+import org.brechas.teccel.client.presenter.PublishEventView;
+import org.brechas.teccel.client.presenter.WidgetActividadPresenter;
+import org.brechas.teccel.client.presenter.WidgetActividadView;
+import org.brechas.teccel.client.presenter.WidgetOrganizadorPresenter;
+import org.brechas.teccel.client.presenter.WidgetOrganizadorView;
+import org.brechas.teccel.client.presenter.WidgetContactoPresenter;
+import org.brechas.teccel.client.presenter.WidgetContactoView;
+import org.brechas.teccel.client.presenter.ViewEventPresenter;
+import org.brechas.teccel.client.presenter.ViewEventView;
 
 public class ClientModule extends AbstractPresenterModule {
 
@@ -45,5 +55,24 @@ public class ClientModule extends AbstractPresenterModule {
 		bindPresenterWidget(MenuHomePresenter.class,
 				MenuHomePresenter.MyView.class, MenuHomeView.class);
 
+
+		bindPresenter(PublishEventPresenter.class,
+				PublishEventPresenter.MyView.class, PublishEventView.class,
+				PublishEventPresenter.MyProxy.class);
+
+		bindPresenterWidget(WidgetActividadPresenter.class,
+				WidgetActividadPresenter.MyView.class,
+				WidgetActividadView.class);
+
+		bindPresenterWidget(WidgetOrganizadorPresenter.class,
+				WidgetOrganizadorPresenter.MyView.class,
+				WidgetOrganizadorView.class);
+
+		bindPresenterWidget(WidgetContactoPresenter.class,
+				WidgetContactoPresenter.MyView.class, WidgetContactoView.class);
+
+		bindPresenter(ViewEventPresenter.class,
+				ViewEventPresenter.MyView.class, ViewEventView.class,
+				ViewEventPresenter.MyProxy.class);
 	}
 }

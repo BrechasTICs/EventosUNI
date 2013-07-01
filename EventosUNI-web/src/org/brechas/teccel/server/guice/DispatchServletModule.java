@@ -4,13 +4,11 @@ import org.brechas.teccel.server.config.ConfigurationServlet;
 import org.brechas.teccel.server.spi.ProspectiveSearchServlet;
 
 import com.google.api.server.spi.SystemServiceServlet;
-import com.google.api.server.spi.guice.SystemServiceModule;
 import com.google.appengine.labs.repackaged.com.google.common.collect.ImmutableMap;
-import com.google.inject.Singleton;
 import com.google.inject.servlet.ServletModule;
 import com.googlecode.objectify.ObjectifyFilter;
-import com.gwtplatform.dispatch.shared.ActionImpl;
 import com.gwtplatform.dispatch.server.guice.DispatchServiceImpl;
+import com.gwtplatform.dispatch.shared.ActionImpl;
 
 public class DispatchServletModule extends ServletModule {
 

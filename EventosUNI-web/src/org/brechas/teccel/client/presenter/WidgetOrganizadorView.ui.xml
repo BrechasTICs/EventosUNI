@@ -1,0 +1,43 @@
+<!DOCTYPE ui:UiBinder SYSTEM "http://dl.google.com/gwt/DTD/xhtml.ent">
+
+<ui:UiBinder xmlns:ui='urn:ui:com.google.gwt.uibinder'
+	xmlns:g='urn:import:com.google.gwt.user.client.ui' ui:generateFormat='com.google.gwt.i18n.rebind.format.PropertiesFormat'
+	ui:generateKeys='com.google.gwt.i18n.rebind.keygen.MD5KeyGenerator'
+	xmlns:w="urn:import:com.google.gwt.widget.client" ui:generateLocales='default'>
+
+	<g:HTMLPanel>
+		<g:VerticalPanel>
+			<g:FormPanel>
+				<g:Grid>
+					<g:row>
+						<g:customCell>
+							<w:TextButton>Eliminar Organizador</w:TextButton>
+						</g:customCell>
+					</g:row>
+					<g:row>
+						<g:customCell>
+							<g:Label text="Nombre del Organizador" />
+						</g:customCell>
+						<g:customCell>
+							<g:TextBox />
+						</g:customCell>
+					</g:row>
+					<g:row>
+						<g:customCell>
+							<g:Label text="Descripcion del Organizador" />
+						</g:customCell>
+						<g:customCell>
+							<g:TextArea width="238" />
+						</g:customCell>
+					</g:row>
+				</g:Grid>
+			</g:FormPanel>
+			<g:FormPanel>
+				<g:FlexTable width="100%" height="100%" ui:field="flexContacto" />
+			</g:FormPanel>
+			<g:FormPanel>
+			<w:TextButton>Agregar Contacto</w:TextButton>
+			</g:FormPanel>
+		</g:VerticalPanel>
+	</g:HTMLPanel>
+</ui:UiBinder>

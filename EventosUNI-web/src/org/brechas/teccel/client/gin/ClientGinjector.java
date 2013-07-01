@@ -12,6 +12,8 @@ import com.google.gwt.inject.client.Ginjector;
 import com.google.gwt.event.shared.EventBus;
 import com.gwtplatform.mvp.client.proxy.PlaceManager;
 import com.google.gwt.inject.client.AsyncProvider;
+import org.brechas.teccel.client.presenter.PublishEventPresenter;
+import org.brechas.teccel.client.presenter.ViewEventPresenter;
 
 @GinModules({ DispatchAsyncModule.class, ClientModule.class })
 public interface ClientGinjector extends Ginjector {
@@ -25,5 +27,9 @@ public interface ClientGinjector extends Ginjector {
 	AsyncProvider<LoginPresenter> getLoginPresenter();
 	
 	AsyncProvider<LayoutPresenter> getRootPresenter();
+
+	AsyncProvider<PublishEventPresenter> getPublishEventPresenter();
+
+	AsyncProvider<ViewEventPresenter> getViewEventPresenter();
 
 }

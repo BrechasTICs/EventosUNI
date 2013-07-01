@@ -1,57 +1,73 @@
 package org.brechas.teccel.server.entity;
 
-import java.io.Serializable;
-import java.util.TimeZone;
+import java.util.Date;
+import java.util.UUID;
 
-import org.apache.james.mime4j.field.datetime.DateTime;
+import org.brechas.teccel.shared.entity.TiempoDto;
 
 import com.googlecode.objectify.annotation.Entity;
-import com.googlecode.objectify.annotation.Id;
+import com.googlecode.objectify.annotation.Index;
 
 @Entity
 public class Tiempo extends BaseEntity {
-
+	private static final String CLOUD_ENTITY_ID_PREFIX="CE:";
 	private static final long serialVersionUID = 7304302089090428442L;
 
-    @Id Long id;
-
-	private DateTime horaInicio;
-	private DateTime horaFin;
-	private TimeZone timeZoneInicio;
-	private TimeZone timeZoneFin;
+    @Index private Date horaInicio;
+	@Index private Date horaFin;
+	private String timeZoneInicio;
+	private String timeZoneFin;
 
 	public Tiempo() {
+		start();
+		set_kindName("Tiempo");
+	}
+	public TiempoDto getDto(){
+		TiempoDto dto = new TiempoDto();
+		dto.setHoraFin(horaFin);
+		dto.setHoraInicio(horaInicio);
+		dto.setTimeZoneFin(timeZoneFin);
+		dto.setTimeZoneInicio(timeZoneInicio);
+		return dto;
+	}
+	public void setDto(TiempoDto dto){
+		horaFin=dto.getHoraFin();
+		horaInicio=dto.getHoraInicio();
+		timeZoneFin=dto.getTimeZoneFin();
+		timeZoneInicio=dto.getTimeZoneInicio();
+		id=CLOUD_ENTITY_ID_PREFIX+UUID.fromString(horaInicio.toString()+get_createdAt()).toString();
+		
 	}
 
-	public void setHoraInicio(DateTime horaInicio) {
+	public void setHoraInicio(Date horaInicio) {
 		this.horaInicio = horaInicio;
 	}
 
-	public void setHoraFin(DateTime horaFin) {
+	public void setHoraFin(Date horaFin) {
 		this.horaFin = horaFin;
 	}
 
-	public void setTimeZoneInicio(TimeZone timeZoneInicio) {
+	public void setTimeZoneInicio(String timeZoneInicio) {
 		this.timeZoneInicio = timeZoneInicio;
 	}
 
-	public void setTimeZoneFin(TimeZone timeZoneFin) {
+	public void setTimeZoneFin(String timeZoneFin) {
 		this.timeZoneFin = timeZoneFin;
 	}
 
-	public DateTime getHoraInicio() {
+	public Date getHoraInicio() {
 		return horaInicio;
 	}
 
-	public DateTime getHoraFin() {
+	public Date getHoraFin() {
 		return horaFin;
 	}
 
-	public TimeZone getTimeZoneInicio() {
+	public String getTimeZoneInicio() {
 		return timeZoneInicio;
 	}
 
-	public TimeZone getTimeZoneFin() {
+	public String getTimeZoneFin() {
 		return timeZoneFin;
 	}
 }

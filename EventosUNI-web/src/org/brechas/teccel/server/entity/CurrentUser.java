@@ -19,6 +19,7 @@ package org.brechas.teccel.server.entity;
 import org.brechas.teccel.shared.entity.CurrentUserDto;
 
 import com.googlecode.objectify.annotation.Entity;
+import com.googlecode.objectify.annotation.Ignore;
 import com.googlecode.objectify.annotation.Index;
 
 @Entity
@@ -30,9 +31,10 @@ public class CurrentUser extends BaseEntity {
 	private Boolean isAdmin;
 	private Boolean isPublisher;
 	private Boolean isGuest;
+	private String userId;
     @Index private String email;
-    private String logoutUrl;
-    private String loginUrl;
+    @Ignore private String logoutUrl;
+    @Ignore private String loginUrl;
     private String nickname;
 	private String universidad;
 	private String facultad;
@@ -47,6 +49,8 @@ public class CurrentUser extends BaseEntity {
         nickname="---";
     	universidad="---";
     	facultad="---";
+		start();
+		set_kindName("CurrentUser");
     }
     public CurrentUserDto getDto(){
     	CurrentUserDto dto = new CurrentUserDto();
@@ -60,6 +64,17 @@ public class CurrentUser extends BaseEntity {
         dto.setUniversidad(universidad);
     	dto.setFacultad(facultad);
     	return dto;
+    }
+    public void setDto(CurrentUserDto dto){
+    	isAdmin=dto.isAdmin();
+    	isPublisher=dto.isPublisher();
+    	isGuest=dto.isGuest();
+    	email=dto.getEmail();
+    	logoutUrl=dto.getLogoutUrl();
+    	loginUrl=dto.getLoginUrl();
+    	nickname=dto.getNickname();
+    	universidad=dto.getUniversidad();
+    	facultad=dto.getFacultad();
     }
 
     public Boolean isAdmin() {
@@ -140,5 +155,11 @@ public class CurrentUser extends BaseEntity {
 	}
 	public void setIsGuest(Boolean isGuest) {
 		this.isGuest = isGuest;
+	}
+	public String getUserId() {
+		return userId;
+	}
+	public void setUserId(String userId) {
+		this.userId = userId;
 	}
 }

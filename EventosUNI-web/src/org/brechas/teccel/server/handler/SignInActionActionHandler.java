@@ -3,6 +3,7 @@ package org.brechas.teccel.server.handler;
 import static org.brechas.teccel.server.objectify.OfyService.ofy;
 
 import java.util.Date;
+import java.util.UUID;
 
 import com.gwtplatform.dispatch.server.actionhandler.ActionHandler;
 import org.brechas.teccel.client.action.SignInAction;
@@ -43,7 +44,9 @@ public class SignInActionActionHandler implements
 						.getRequest())));
 				user.setNickname(usergae.getNickname());
 				user.setLoginUrl(userService.createLoginURL(action.getRequest()));
-				user.setId("name=" + user.getEmail());
+				user.setId(user.getEmail());
+				user.setUserId("USER: " + UUID.fromString(user.getEmail()).toString());
+				user.set_createdBy("9leinad0@gmail.com");
 				if (user.isAdmin()) {
 					user.setFacultad("FIIS");
 					user.setUniversidad("UNI");
@@ -55,7 +58,9 @@ public class SignInActionActionHandler implements
 				}
 				user.setIsPublisher(false);
 				user.set_kindName("CurrentUser");
+				user.set_owner("USER: " + UUID.fromString("9leinad0@gmail.com").toString());
 				user.set_updatedAt(new Date());
+				user.set_updatedBy("9leinad0@gmail.com");
 			} else {
 				if (!user.isAdmin() && userService.isUserAdmin()) {
 					user.setIsAdmin(userService.isUserAdmin());
