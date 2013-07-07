@@ -2,16 +2,15 @@
 
 <ui:UiBinder xmlns:ui='urn:ui:com.google.gwt.uibinder'
 	xmlns:g='urn:import:com.google.gwt.user.client.ui' ui:generateFormat='com.google.gwt.i18n.rebind.format.PropertiesFormat'
-	ui:generateKeys='com.google.gwt.i18n.rebind.keygen.MD5KeyGenerator' xmlns:w="urn:import:com.google.gwt.widget.client"
-	ui:generateLocales='default' xmlns:p1="urn:import:com.google.gwt.user.cellview.client">
+	ui:generateKeys='com.google.gwt.i18n.rebind.keygen.MD5KeyGenerator'
+	xmlns:w="urn:import:com.google.gwt.widget.client" ui:generateLocales='default'
+	xmlns:p1="urn:import:com.google.gwt.user.cellview.client">
 
 	<g:HTMLPanel>
 		<g:VerticalPanel width="100%">
-			<g:FormPanel ui:field="formOrganizador">
-				<g:SimplePanel ui:field="flexOrganizador" />
-			</g:FormPanel>
+			<g:HTMLPanel ui:field="flexOrganizador" />
 			<g:FormPanel>
-			<w:TextButton ui:field="agregarOrganizador">Agregar Organizador</w:TextButton>
+				<g:Button ui:field="agregarOrganizador" text="Agregar Organizador"></g:Button>
 			</g:FormPanel>
 			<g:FormPanel ui:field="formEvento" width="100%">
 				<g:VerticalPanel>
@@ -31,7 +30,8 @@
 									horizontalAlignment="ALIGN_RIGHT" width="100" />
 							</g:customCell>
 							<g:customCell>
-								<g:TextArea alignment="LEFT" width="400" ui:field="descripcionEvento" />
+								<g:TextArea alignment="LEFT" width="400"
+									ui:field="descripcionEvento" />
 							</g:customCell>
 						</g:row>
 						<g:row>
@@ -64,10 +64,12 @@
 						</g:row>
 						<g:row>
 							<g:customCell>
-								<g:Label text="Seleccione" ui:field="tipoEventoM" visible="false"/>
+								<g:Label text="Seleccione" ui:field="tipoEventoM"
+									visible="false" />
 							</g:customCell>
 							<g:customCell>
-								<g:ListBox visibleItemCount="5" multipleSelect="true" visible="false" ui:field="tipoEventoN"/>
+								<g:ListBox visibleItemCount="5" multipleSelect="true"
+									visible="false" ui:field="tipoEventoN" />
 							</g:customCell>
 						</g:row>
 						<g:row>
@@ -120,21 +122,20 @@
 										width="100" />
 								</g:customCell>
 								<g:customCell>
-									<g:TextArea alignment="LEFT" width="400" ui:field="observacionEvento"/>
+									<g:TextArea alignment="LEFT" width="400"
+										ui:field="observacionEvento" />
 								</g:customCell>
 							</g:row>
 						</g:Grid>
 					</g:DisclosurePanel>
 				</g:VerticalPanel>
 			</g:FormPanel>
-			<g:FormPanel ui:field="formActividad">
-				<g:SimplePanel ui:field="flexActividad" />
+			<g:HTMLPanel ui:field="flexActividad" />
+			<g:FormPanel>
+				<g:Button ui:field="agregarActividad" text="Agregar Actividad"></g:Button>
 			</g:FormPanel>
 			<g:FormPanel>
-			<w:TextButton ui:field="agregarActividad">Agregar Actividad</w:TextButton>
-			</g:FormPanel>
-			<g:FormPanel>
-				<g:Button text="Publicar"/>
+				<g:Button text="Publicar" />
 			</g:FormPanel>
 		</g:VerticalPanel>
 	</g:HTMLPanel>

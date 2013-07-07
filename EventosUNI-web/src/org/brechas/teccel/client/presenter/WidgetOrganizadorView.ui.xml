@@ -11,7 +11,7 @@
 				<g:Grid>
 					<g:row>
 						<g:customCell>
-							<w:TextButton>Eliminar Organizador</w:TextButton>
+							<g:Button ui:field="eliminarOrganizador" text="Eliminar Organizador"></g:Button>
 						</g:customCell>
 					</g:row>
 					<g:row>
@@ -19,7 +19,7 @@
 							<g:Label text="Nombre del Organizador" />
 						</g:customCell>
 						<g:customCell>
-							<g:TextBox />
+							<g:TextBox ui:field="nombre"/>
 						</g:customCell>
 					</g:row>
 					<g:row>
@@ -27,16 +27,15 @@
 							<g:Label text="Descripcion del Organizador" />
 						</g:customCell>
 						<g:customCell>
-							<g:TextArea width="238" />
+							<g:TextArea width="238" ui:field="descripcion" />
 						</g:customCell>
 					</g:row>
 				</g:Grid>
 			</g:FormPanel>
+			<g:HTMLPanel ui:field="panelContacto">
+			</g:HTMLPanel>
 			<g:FormPanel>
-				<g:FlexTable width="100%" height="100%" ui:field="flexContacto" />
-			</g:FormPanel>
-			<g:FormPanel>
-			<w:TextButton>Agregar Contacto</w:TextButton>
+			<g:Button ui:field="agregarContacto" text="Agregar Contacto"></g:Button>
 			</g:FormPanel>
 		</g:VerticalPanel>
 	</g:HTMLPanel>

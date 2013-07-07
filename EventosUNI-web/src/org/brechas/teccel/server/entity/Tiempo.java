@@ -35,8 +35,7 @@ public class Tiempo extends BaseEntity {
 		horaInicio=dto.getHoraInicio();
 		timeZoneFin=dto.getTimeZoneFin();
 		timeZoneInicio=dto.getTimeZoneInicio();
-		id=CLOUD_ENTITY_ID_PREFIX+UUID.fromString(horaInicio.toString()+get_createdAt()).toString();
-		
+		id=CLOUD_ENTITY_ID_PREFIX+UUID.randomUUID().toString();
 	}
 
 	public void setHoraInicio(Date horaInicio) {

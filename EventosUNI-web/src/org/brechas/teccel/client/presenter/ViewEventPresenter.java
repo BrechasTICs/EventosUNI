@@ -1,5 +1,8 @@
 package org.brechas.teccel.client.presenter;
 
+import java.util.ArrayList;
+import java.util.List;
+
 import com.gwtplatform.dispatch.shared.DispatchAsync;
 import com.gwtplatform.mvp.client.Presenter;
 import com.gwtplatform.mvp.client.View;
@@ -17,10 +20,22 @@ import com.gwtplatform.mvp.client.proxy.RevealContentEvent;
 import org.brechas.teccel.client.presenter.LayoutPresenter;
 import org.brechas.teccel.client.action.PublicarEventoAction;
 import org.brechas.teccel.client.action.PublicarEventoActionResult;
+import org.brechas.teccel.client.event.EmailEvent;
+import org.brechas.teccel.client.event.EmailEvent.EmailHandler;
+import org.brechas.teccel.server.entity.Lugar;
+import org.brechas.teccel.shared.entity.ActividadDto;
+import org.brechas.teccel.shared.entity.ContactoDto;
+import org.brechas.teccel.shared.entity.EventoDto;
+import org.brechas.teccel.shared.entity.LugarDto;
+import org.brechas.teccel.shared.entity.OrganizadorDto;
+import org.brechas.teccel.shared.entity.TiempoDto;
+import org.brechas.teccel.shared.entity.TipoEventoDto;
 
 public class ViewEventPresenter extends
-		Presenter<ViewEventPresenter.MyView, ViewEventPresenter.MyProxy> {
+		Presenter<ViewEventPresenter.MyView, ViewEventPresenter.MyProxy> implements EmailHandler{
 
+	public String email;
+	private EventBus eventBus;
 	public interface MyView extends View {
 	}
 
@@ -33,11 +48,11 @@ public class ViewEventPresenter extends
 	public ViewEventPresenter(final EventBus eventBus, final MyView view,
 			final MyProxy proxy) {
 		super(eventBus, view, proxy);
+		this.eventBus=eventBus;
 	}
 
 	@Inject DispatchAsync dispatchAsync;
 	@Inject PublicarEventoAction publicar;
-	@Inject LoginPresenter login;
 	
 	@Override
 	protected void revealInParent() {
@@ -48,8 +63,13 @@ public class ViewEventPresenter extends
 	@Override
 	protected void onBind() {
 		super.onBind();
+		addRegisteredHandler(EmailEvent.getType(), this );
 	}
 
+	public void onEmail(EmailEvent event) {
+	    email=event.getEmail();
+	  }
+	
 	@Override
 	protected void onHide() {
 		super.onHide();
@@ -58,17 +78,46 @@ public class ViewEventPresenter extends
 	@Override
 	protected void onReset() {
 		super.onReset();
+		EmailEvent emailEvent =new EmailEvent();
+		List<OrganizadorDto> listOrganizador=new ArrayList<OrganizadorDto>();
+		listOrganizador.add(new OrganizadorDto());
+		List<List<ContactoDto>> listContacto=new ArrayList<List<ContactoDto>>();
+		List<ContactoDto> listCont=new ArrayList<ContactoDto>();
+		listCont.add(new ContactoDto());
+		listCont.add(new ContactoDto());
+		listCont.add(new ContactoDto());
+		listCont.add(new ContactoDto());
+		listContacto.add(listCont);
+		List<ActividadDto> listActividad=new ArrayList<ActividadDto>();
+		listActividad.add(new ActividadDto());
+		listActividad.add(new ActividadDto());
+		List<LugarDto> listLugar=new ArrayList<LugarDto>();
+		listLugar.add(new LugarDto());
+		listLugar.add(new LugarDto());
+		List<TiempoDto> listTiempo=new ArrayList<TiempoDto>();
+		listTiempo.add(new TiempoDto());
+		listTiempo.add(new TiempoDto());
+		ViewEventPresenter.this.eventBus.fireEvent(emailEvent);
 		publicar=new PublicarEventoAction();
-		publicar.setRequest(login.getView().getNickname().getText());
-		dispatchAsync.execute(publicar, publicarActionCallback);
+		publicar.setRequest(email);
+		publicar.setEvento(new EventoDto());
+		publicar.setListActividad(listActividad);
+		publicar.setListContacto(listContacto);
+		publicar.setListLugar(listLugar);
+		publicar.setListOrganizador(listOrganizador);
+		publicar.setListTiempo(listTiempo);
+		publicar.setTipoEvento(new TipoEventoDto());
+		dispatchAsync.execute(publicar, publicarActionCallback);		
 	}
 
 	private AsyncCallback<PublicarEventoActionResult> publicarActionCallback = new AsyncCallback<PublicarEventoActionResult>() {
 		public void onFailure(Throwable caught) {
+		
 			Window.alert("Error: " + caught.getMessage());
 		};
 
 		public void onSuccess(PublicarEventoActionResult result) {
+			Window.alert("Gooood!");
 		}
 	};
 }

@@ -38,8 +38,7 @@ public class TipoEvento extends BaseEntity {
 		mixto=dto.getMixto();
 		recreativo=dto.getRecreativo();
 		social=dto.getSocial();
-		id=CLOUD_ENTITY_ID_PREFIX+UUID.fromString(""+mixto+academico+cultural+social+deportivo+recreativo).toString();
-		
+		id=CLOUD_ENTITY_ID_PREFIX+UUID.randomUUID().toString();
 	}
 
 	public Boolean getCultural() {

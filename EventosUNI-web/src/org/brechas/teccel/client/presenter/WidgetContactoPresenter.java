@@ -6,6 +6,7 @@ import com.google.inject.Inject;
 import com.google.gwt.event.dom.client.ClickEvent;
 import com.google.gwt.event.dom.client.ClickHandler;
 import com.google.gwt.event.shared.EventBus;
+import com.google.gwt.user.client.ui.Button;
 import com.google.gwt.user.client.ui.CheckBox;
 import com.google.gwt.user.client.ui.IntegerBox;
 import com.google.gwt.user.client.ui.ListBox;
@@ -17,7 +18,10 @@ import com.google.gwt.widget.client.TextButton;
 public class WidgetContactoPresenter extends
 		PresenterWidget<WidgetContactoPresenter.MyView> {
 
-	public interface MyView extends View {		
+	public interface MyView extends View {
+		public ListBox getTipo();
+		public TextArea getValor();
+		public Button getEliminarContacto();
 	}
 
 	@Inject
@@ -28,6 +32,7 @@ public class WidgetContactoPresenter extends
 	@Override
 	protected void onBind() {
 		super.onBind();
+		getView().getEliminarContacto().addClickHandler(eliminaContactoHandler);
 	}
 
 	@Override
@@ -39,6 +44,14 @@ public class WidgetContactoPresenter extends
 	protected void onReset() {
 		super.onReset();
 	}
+	ClickHandler eliminaContactoHandler = new ClickHandler() {
+
+		@Override
+		public void onClick(ClickEvent event) {
+			removeFromSlot(WidgetOrganizadorPresenter.SLOT_Contacto,
+					WidgetContactoPresenter.this);
+		}
+	};
 
 	
 }

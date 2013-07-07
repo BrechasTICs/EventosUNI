@@ -12,7 +12,7 @@
 				<g:Grid>
 					<g:row>
 						<g:customCell>
-							<w:TextButton ui:field="eliminaActividad">Eliminar Actividad</w:TextButton>
+							<g:Button ui:field="eliminaActividad">Eliminar Actividad</g:Button>
 						</g:customCell>
 						<g:customCell>
 							<g:CheckBox text="Es en la UNI" checked="true" enabled="false" ui:field="checkIsUni">

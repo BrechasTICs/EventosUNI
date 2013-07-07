@@ -28,7 +28,7 @@ public class Contacto extends BaseEntity{
 	public void setDto(ContactoDto dto){
 		tipo=dto.getTipo();
 		valor=dto.getValor();
-		id=CLOUD_ENTITY_ID_PREFIX+UUID.fromString(valor+get_createdAt()).toString();
+		id=CLOUD_ENTITY_ID_PREFIX+UUID.randomUUID().toString();
 	}
 
 	public void setTipo(String tipo) {

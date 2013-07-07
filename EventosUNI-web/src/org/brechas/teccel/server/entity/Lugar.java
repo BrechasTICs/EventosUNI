@@ -43,8 +43,7 @@ public class Lugar extends BaseEntity {
 		referencia=dto.getReferencia();
 		region=dto.getRegion();
 		universidad=dto.isUniversidad();
-		id=CLOUD_ENTITY_ID_PREFIX+UUID.fromString(referencia+get_createdAt()).toString();
-		
+		id=CLOUD_ENTITY_ID_PREFIX+UUID.randomUUID().toString();
 	}
 
 	public void setPais(String pais) {

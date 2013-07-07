@@ -48,7 +48,7 @@ public class Actividad extends BaseEntity {
 		return dto;
 	}
 	public void setDto(ActividadDto dto){
-		id=CLOUD_ENTITY_ID_PREFIX+UUID.fromString(nombre+get_createdAt()).toString();
+		id=CLOUD_ENTITY_ID_PREFIX+UUID.randomUUID().toString();
 		nombre=dto.getNombre();
 		capacidad=dto.getCapacidad();
 		descripcion=dto.getDescripcion();

@@ -73,7 +73,7 @@ public class Evento extends BaseEntity {
 		nombre=dto.getNombre();
 		requisito=dto.getRequisito();
 		observacion=dto.getObservacion();
-		id=CLOUD_ENTITY_ID_PREFIX+UUID.fromString(nombre+get_createdAt()).toString();
+		id=CLOUD_ENTITY_ID_PREFIX+UUID.randomUUID().toString();
 	}
 
 	public void setNombre(String nombre) {

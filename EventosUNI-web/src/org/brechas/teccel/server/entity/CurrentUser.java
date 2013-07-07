@@ -16,6 +16,8 @@
 
 package org.brechas.teccel.server.entity;
 
+import java.util.UUID;
+
 import org.brechas.teccel.shared.entity.CurrentUserDto;
 
 import com.googlecode.objectify.annotation.Entity;
@@ -28,6 +30,7 @@ public class CurrentUser extends BaseEntity {
 	 * 
 	 */
 	private static final long serialVersionUID = 1L;
+	
 	private Boolean isAdmin;
 	private Boolean isPublisher;
 	private Boolean isGuest;
@@ -75,6 +78,8 @@ public class CurrentUser extends BaseEntity {
     	nickname=dto.getNickname();
     	universidad=dto.getUniversidad();
     	facultad=dto.getFacultad();
+    	id=dto.getEmail();
+    	userId="USER: " + UUID.randomUUID().toString();
     }
 
     public Boolean isAdmin() {

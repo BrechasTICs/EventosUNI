@@ -1,0 +1,42 @@
+<!DOCTYPE ui:UiBinder SYSTEM "http://dl.google.com/gwt/DTD/xhtml.ent">
+
+<ui:UiBinder xmlns:ui='urn:ui:com.google.gwt.uibinder'
+	xmlns:g='urn:import:com.google.gwt.user.client.ui' ui:generateFormat='com.google.gwt.i18n.rebind.format.PropertiesFormat'
+	ui:generateKeys='com.google.gwt.i18n.rebind.keygen.MD5KeyGenerator'
+	ui:generateLocales='default'>
+
+	<g:HTMLPanel>
+		<g:VerticalPanel>
+			<g:FormPanel>
+				<g:Grid>
+					<g:row>
+						<g:customCell>
+							<g:Label text="Nombre del Organizador" />
+						</g:customCell>
+						<g:customCell>
+							<g:TextBox ui:field="nombre" />
+						</g:customCell>
+					</g:row>
+					<g:row>
+						<g:customCell>
+							<g:Label text="Descripcion del Organizador" />
+						</g:customCell>
+						<g:customCell>
+							<g:TextArea width="238" ui:field="descripcion" />
+						</g:customCell>
+					</g:row>
+				</g:Grid>
+			</g:FormPanel>
+			<g:HTMLPanel ui:field="panelContacto">
+				<g:FlexTable ui:field="telefono">
+				</g:FlexTable>
+				<g:FlexTable ui:field="direccion">
+				</g:FlexTable>
+				<g:FlexTable ui:field="email">
+				</g:FlexTable>
+				<g:FlexTable ui:field="paginaweb">
+				</g:FlexTable>
+			</g:HTMLPanel>
+		</g:VerticalPanel>
+	</g:HTMLPanel>
+</ui:UiBinder>

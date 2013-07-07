@@ -10,7 +10,7 @@
 			<g:Grid>
 				<g:row>
 					<g:customCell>
-						<w:TextButton>Eliminar Contacto</w:TextButton>
+						<g:Button text="Eliminar Contacto" ui:field="eliminarContacto"></g:Button>
 					</g:customCell>
 				</g:row>
 				<g:row>
@@ -18,7 +18,7 @@
 						<g:Label text="Tipo contacto" />
 					</g:customCell>
 					<g:customCell>
-						<g:ListBox>
+						<g:ListBox ui:field="tipo">
 							<g:item>
 								Teléfono
 							</g:item>							
@@ -31,18 +31,15 @@
 							<g:item>
 								Página Web
 							</g:item>
-							<g:item>
-								Fax
-							</g:item>
 						</g:ListBox>
 					</g:customCell>
 				</g:row>
 				<g:row>
 					<g:customCell>
-						<g:Label text="Descripcion del Organizador" />
+						<g:Label text="Valor contacto" />
 					</g:customCell>
 					<g:customCell>
-						<g:TextArea width="238" />
+						<g:TextArea width="238" ui:field="valor"/>
 					</g:customCell>
 				</g:row>
 			</g:Grid>

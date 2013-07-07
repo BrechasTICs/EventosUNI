@@ -28,6 +28,8 @@ import org.brechas.teccel.client.presenter.WidgetContactoPresenter;
 import org.brechas.teccel.client.presenter.WidgetContactoView;
 import org.brechas.teccel.client.presenter.ViewEventPresenter;
 import org.brechas.teccel.client.presenter.ViewEventView;
+import org.brechas.teccel.client.presenter.RegisterOrganizadorPresenter;
+import org.brechas.teccel.client.presenter.RegisterOrganizadorView;
 
 public class ClientModule extends AbstractPresenterModule {
 
@@ -74,5 +76,10 @@ public class ClientModule extends AbstractPresenterModule {
 		bindPresenter(ViewEventPresenter.class,
 				ViewEventPresenter.MyView.class, ViewEventView.class,
 				ViewEventPresenter.MyProxy.class);
+
+		bindPresenter(RegisterOrganizadorPresenter.class,
+				RegisterOrganizadorPresenter.MyView.class,
+				RegisterOrganizadorView.class,
+				RegisterOrganizadorPresenter.MyProxy.class);
 	}
 }

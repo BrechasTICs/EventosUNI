@@ -6,15 +6,16 @@ import com.google.gwt.event.dom.client.ClickEvent;
 import com.google.gwt.event.dom.client.ClickHandler;
 import com.google.gwt.event.shared.EventBus;
 import com.google.gwt.event.shared.GwtEvent.Type;
+import com.google.gwt.user.client.Window;
 import com.google.gwt.user.client.rpc.AsyncCallback;
+import com.google.gwt.user.client.ui.Button;
 import com.google.gwt.user.client.ui.FileUpload;
 import com.google.gwt.user.client.ui.FormPanel;
+import com.google.gwt.user.client.ui.HTMLPanel;
 import com.google.gwt.user.client.ui.Label;
 import com.google.gwt.user.client.ui.ListBox;
-import com.google.gwt.user.client.ui.SimplePanel;
 import com.google.gwt.user.client.ui.TextArea;
 import com.google.gwt.user.client.ui.TextBox;
-import com.google.gwt.widget.client.TextButton;
 import com.google.inject.Inject;
 import com.google.inject.Provider;
 import com.gwtplatform.common.client.IndirectProvider;
@@ -35,17 +36,13 @@ public class PublishEventPresenter extends
 	public static final Type<RevealContentHandler<?>> SLOT_Actividad = new Type<RevealContentHandler<?>>();
 	@ContentSlot
 	public static final Type<RevealContentHandler<?>> SLOT_Organizador = new Type<RevealContentHandler<?>>();
-	
+
 	public interface MyView extends View {
-		public SimplePanel getFlexActividad();
-
-		public FormPanel getFormActividad();
-
-		public SimplePanel getFlexOrganizador();
+		public HTMLPanel getFlexActividad();
+		
+		public HTMLPanel getFlexOrganizador();
 
 		public FormPanel getFormEvento();
-
-		public FormPanel getFormOrganizador();
 
 		public FileUpload getImagenEvento();
 
@@ -61,9 +58,9 @@ public class PublishEventPresenter extends
 
 		public TextArea getObservacionEvento();
 
-		public TextButton getAgregarOrganizador();
+		public Button getAgregarOrganizador();
 
-		public TextButton getAgregarActividad();
+		public Button getAgregarActividad();
 
 		public Label getTipoEventoM();
 
@@ -71,6 +68,7 @@ public class PublishEventPresenter extends
 	}
 
 	private IndirectProvider<WidgetActividadPresenter> providerActividad;
+	private IndirectProvider<WidgetOrganizadorPresenter> providerOrganizador;
 
 	@ProxyCodeSplit
 	@NameToken(NameTokens.publishevent)
@@ -80,18 +78,19 @@ public class PublishEventPresenter extends
 	@Inject
 	public PublishEventPresenter(final EventBus eventBus, final MyView view,
 			final MyProxy proxy,
-			Provider<WidgetActividadPresenter> providerActividad) {
+			Provider<WidgetActividadPresenter> providerActividad,
+			Provider<WidgetOrganizadorPresenter> providerOrganizador) {
 		super(eventBus, view, proxy);
 		this.providerActividad = new StandardProvider<WidgetActividadPresenter>(
 				providerActividad);
+		this.providerOrganizador = new StandardProvider<WidgetOrganizadorPresenter>(
+				providerOrganizador);
 	}
-
-	@Inject
-	WidgetActividadPresenter widgetActividad;
 
 	@Override
 	protected void revealInParent() {
-		RevealContentEvent.fire(this, LayoutPresenter.SLOT_SetMainContent, this);
+		RevealContentEvent
+				.fire(this, LayoutPresenter.SLOT_SetMainContent, this);
 	}
 
 	@Override
@@ -99,7 +98,8 @@ public class PublishEventPresenter extends
 		super.onBind();
 		getView().getAgregarActividad()
 				.addClickHandler(agregarActividadHandler);
-		// widgetActividad.getView()
+		getView().getAgregarOrganizador().addClickHandler(
+				agregarOrganizadorHandler);
 	}
 
 	@Override
@@ -120,11 +120,11 @@ public class PublishEventPresenter extends
 			providerActividad.get(actMasCallback);
 		}
 	};
-	ClickHandler eliminaActividadHanlder = new ClickHandler() {
+	ClickHandler agregarOrganizadorHandler = new ClickHandler() {
 
 		@Override
 		public void onClick(ClickEvent event) {
-			providerActividad.get(actMenosCallback);
+			providerOrganizador.get(orgMasCallback);
 		}
 	};
 	AsyncCallback<WidgetActividadPresenter> actMasCallback = new AsyncCallback<WidgetActividadPresenter>() {
@@ -138,20 +138,21 @@ public class PublishEventPresenter extends
 		@Override
 		public void onFailure(Throwable caught) {
 			// TODO Auto-generated method stub
-
+			Window.alert("Act Fail!");
 		}
 	};
-	AsyncCallback<WidgetActividadPresenter> actMenosCallback = new AsyncCallback<WidgetActividadPresenter>() {
+	AsyncCallback<WidgetOrganizadorPresenter> orgMasCallback = new AsyncCallback<WidgetOrganizadorPresenter>() {
 
 		@Override
-		public void onSuccess(WidgetActividadPresenter result) {
+		public void onSuccess(WidgetOrganizadorPresenter result) {
 			// TODO Auto-generated method stub
-			removeFromSlot(SLOT_Actividad, result);
+			addToSlot(SLOT_Organizador, result);
 		}
 
 		@Override
 		public void onFailure(Throwable caught) {
 			// TODO Auto-generated method stub
+			Window.alert("Org Fail!");
 
 		}
 	};

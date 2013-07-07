@@ -6,6 +6,7 @@ import com.google.gwt.user.client.ui.Widget;
 import com.google.inject.Inject;
 import com.google.gwt.uibinder.client.UiField;
 import com.google.gwt.widget.client.TextButton;
+import com.google.gwt.user.client.ui.Button;
 import com.google.gwt.user.client.ui.CheckBox;
 import com.google.gwt.user.client.ui.TextBox;
 import com.google.gwt.user.client.ui.TextArea;
@@ -21,6 +22,7 @@ public class WidgetActividadView extends ViewImpl implements
 	public interface Binder extends UiBinder<Widget, WidgetActividadView> {
 	}
 
+	@Inject PublishEventPresenter publishEventPresenter;
 	@Inject
 	public WidgetActividadView(final Binder binder) {
 		widget = binder.createAndBindUi(this);
@@ -30,7 +32,7 @@ public class WidgetActividadView extends ViewImpl implements
 	public Widget asWidget() {
 		return widget;
 	}
-	@UiField TextButton eliminaActividad;
+	@UiField Button eliminaActividad;
 	@UiField CheckBox checkIsUni;
 	@UiField TextBox nombreActividad;
 	@UiField TextArea descripcionActividad;
@@ -47,7 +49,20 @@ public class WidgetActividadView extends ViewImpl implements
 	@UiField TextBox Distrito;
 	@UiField TextBox direccion;
 	
-	public TextButton getEliminaActividad() {
+	@Override
+	public void removeFromSlot(Object slot, Widget content) {
+	    if (slot == PublishEventPresenter.SLOT_Actividad) {
+	    	removeActividadContent(content);
+	    } else {
+	        super.removeFromSlot(slot, content);
+	    }
+	}
+	public void removeActividadContent(Widget content) 
+	{
+		publishEventPresenter.getView().getFlexActividad().remove(content);
+	}
+	
+	public Button getEliminaActividad() {
 		return eliminaActividad;
 	}
 

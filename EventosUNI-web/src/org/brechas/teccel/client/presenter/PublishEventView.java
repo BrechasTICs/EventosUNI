@@ -1,23 +1,18 @@
 package org.brechas.teccel.client.presenter;
 
-import com.gwtplatform.mvp.client.ViewImpl;
 import com.google.gwt.uibinder.client.UiBinder;
+import com.google.gwt.uibinder.client.UiField;
+import com.google.gwt.user.client.ui.Button;
+import com.google.gwt.user.client.ui.FileUpload;
+import com.google.gwt.user.client.ui.FormPanel;
+import com.google.gwt.user.client.ui.HTMLPanel;
+import com.google.gwt.user.client.ui.Label;
+import com.google.gwt.user.client.ui.ListBox;
+import com.google.gwt.user.client.ui.TextArea;
+import com.google.gwt.user.client.ui.TextBox;
 import com.google.gwt.user.client.ui.Widget;
 import com.google.inject.Inject;
-import com.google.gwt.uibinder.client.UiField;
-import com.google.gwt.user.client.ui.FlexTable;
-import com.google.gwt.user.client.ui.FormPanel;
-import com.google.gwt.user.client.ui.FileUpload;
-import com.google.gwt.user.client.ui.Label;
-import com.google.gwt.user.client.ui.SimplePanel;
-import com.google.gwt.user.cellview.client.CellList;
-import com.google.gwt.cell.client.AbstractCell;
-import com.google.gwt.cell.client.Cell.Context;
-import com.google.gwt.safehtml.shared.SafeHtmlBuilder;
-import com.google.gwt.user.client.ui.TextBox;
-import com.google.gwt.user.client.ui.TextArea;
-import com.google.gwt.user.client.ui.ListBox;
-import com.google.gwt.widget.client.TextButton;
+import com.gwtplatform.mvp.client.ViewImpl;
 
 public class PublishEventView extends ViewImpl implements
 		PublishEventPresenter.MyView {
@@ -36,11 +31,9 @@ public class PublishEventView extends ViewImpl implements
 	public Widget asWidget() {
 		return widget;
 	}
-	@UiField SimplePanel flexActividad;
-	@UiField FormPanel formActividad;
-	@UiField SimplePanel flexOrganizador;
+	@UiField HTMLPanel flexActividad;
+	@UiField HTMLPanel flexOrganizador;
 	@UiField FormPanel formEvento;
-	@UiField FormPanel formOrganizador;
 	@UiField FileUpload imagenEvento;
 	@UiField TextBox nombreEvento;
 	@UiField TextArea descripcionEvento;
@@ -48,19 +41,19 @@ public class PublishEventView extends ViewImpl implements
 	@UiField ListBox estadoEvento;
 	@UiField TextArea requisitoEvento;
 	@UiField TextArea observacionEvento;
-	@UiField TextButton agregarOrganizador;
-	@UiField TextButton agregarActividad;
+	@UiField Button agregarOrganizador;
+	@UiField Button agregarActividad;
 	@UiField Label tipoEventoM;
 	@UiField ListBox tipoEventoN;
 	
 	@Override
 	public void setInSlot(Object slot, Widget content) {
 		// TODO Auto-generated method stub
-		if (slot == LayoutPresenter.SLOT_SetMainContent)
+		if (slot == PublishEventPresenter.SLOT_Organizador)
 		{			
 			setOrganizadorContent(content);
 		}
- 		else if (slot == LayoutPresenter.SLOT_SetLoginContent)
+ 		else if (slot == PublishEventPresenter.SLOT_Actividad)
 		{
 			setActividadContent(content);
 		}
@@ -68,7 +61,17 @@ public class PublishEventView extends ViewImpl implements
 		{
  			super.setInSlot(slot, content);
 		}
-		
+	}
+	@Override
+	public void addToSlot(Object slot, Widget content) {
+	    if (slot == PublishEventPresenter.SLOT_Actividad) {
+	    	addActividadContent(content);
+	    } else  if (slot == PublishEventPresenter.SLOT_Organizador) {
+	    	addOrganizadorContent(content);;
+	    }else
+	    {
+	        super.addToSlot(slot, content);
+	    }
 	}
 	
 	public void setOrganizadorContent(Widget content) 
@@ -87,24 +90,24 @@ public class PublishEventView extends ViewImpl implements
 	      flexActividad.add(content);
 	    }
 	}
-	public SimplePanel getFlexActividad() {
+	public void addOrganizadorContent(Widget content) 
+	{
+		flexOrganizador.add(content);
+	}
+	public void addActividadContent(Widget content) 
+	{
+		flexActividad.add(content);
+	}
+	public HTMLPanel getFlexActividad() {
 		return flexActividad;
 	}
 
-	public FormPanel getFormActividad() {
-		return formActividad;
-	}
-
-	public SimplePanel getFlexOrganizador() {
+	public HTMLPanel getFlexOrganizador() {
 		return flexOrganizador;
 	}
 
 	public FormPanel getFormEvento() {
 		return formEvento;
-	}
-
-	public FormPanel getFormOrganizador() {
-		return formOrganizador;
 	}
 
 	public FileUpload getImagenEvento() {
@@ -135,11 +138,11 @@ public class PublishEventView extends ViewImpl implements
 		return observacionEvento;
 	}
 
-	public TextButton getAgregarOrganizador() {
+	public Button getAgregarOrganizador() {
 		return agregarOrganizador;
 	}
 
-	public TextButton getAgregarActividad() {
+	public Button getAgregarActividad() {
 		return agregarActividad;
 	}
 

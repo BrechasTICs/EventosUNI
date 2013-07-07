@@ -45,8 +45,7 @@ public class Organizador extends BaseEntity {
 	public void setDto(OrganizadorDto dto){
 		nombre=dto.getNombre();
 		descripcion=dto.getDescripcion();
-		id=CLOUD_ENTITY_ID_PREFIX+UUID.fromString(nombre+get_createdAt()).toString();
-		
+		id=CLOUD_ENTITY_ID_PREFIX+UUID.randomUUID().toString();
 	}
 
 	public void setNombre(String nombre) {
