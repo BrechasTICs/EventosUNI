@@ -5,7 +5,8 @@ public class OrganizadorDto implements Dto {
 
 	private static final long serialVersionUID = 3145502731223640453L;
 	private String nombre;
-	private String descripcion;	
+	private String descripcion;
+	private String logoUrl;
 	
 	public OrganizadorDto() {
 	}
@@ -24,5 +25,13 @@ public class OrganizadorDto implements Dto {
 
 	public String getDescripcion() {
 		return descripcion;
+	}
+
+	public String getLogoUrl() {
+		return logoUrl;
+	}
+
+	public void setLogoUrl(String logoUrl) {
+		this.logoUrl = logoUrl;
 	}
 }

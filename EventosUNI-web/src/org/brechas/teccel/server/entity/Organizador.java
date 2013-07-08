@@ -16,7 +16,9 @@ public class Organizador extends BaseEntity {
 	private static final long serialVersionUID = 3145502731223640453L;
 
     @Index private String nombre;
-	private String descripcion;	
+	private String descripcion;
+	private String logoBlobKey;
+	private String logoUrl;
 	@Load private List<Ref<Contacto>> contacto = new ArrayList<Ref<Contacto>>();
 	@Load private List<Ref<Evento>> evento = new ArrayList<Ref<Evento>>();
 
@@ -40,11 +42,13 @@ public class Organizador extends BaseEntity {
 		OrganizadorDto dto = new OrganizadorDto();
 		dto.setDescripcion(descripcion);
 		dto.setNombre(nombre);
+		dto.setLogoUrl(logoUrl);
 		return dto;
 	}
 	public void setDto(OrganizadorDto dto){
 		nombre=dto.getNombre();
 		descripcion=dto.getDescripcion();
+		logoUrl=dto.getLogoUrl();
 		id=CLOUD_ENTITY_ID_PREFIX+UUID.randomUUID().toString();
 	}
 
@@ -62,5 +66,17 @@ public class Organizador extends BaseEntity {
 
 	public String getDescripcion() {
 		return descripcion;
+	}
+	public String getLogoBlobKey() {
+		return logoBlobKey;
+	}
+	public void setLogoBlobKey(String logoBlobKey) {
+		this.logoBlobKey = logoBlobKey;
+	}
+	public String getLogoUrl() {
+		return logoUrl;
+	}
+	public void setLogoUrl(String logoUrl) {
+		this.logoUrl = logoUrl;
 	}
 }

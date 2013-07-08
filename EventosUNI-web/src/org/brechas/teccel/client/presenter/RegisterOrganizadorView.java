@@ -4,6 +4,7 @@ import com.gwtplatform.mvp.client.ViewImpl;
 import com.google.gwt.uibinder.client.UiBinder;
 import com.google.gwt.uibinder.client.UiField;
 import com.google.gwt.user.client.ui.Button;
+import com.google.gwt.user.client.ui.FileUpload;
 import com.google.gwt.user.client.ui.FlexTable;
 import com.google.gwt.user.client.ui.HTMLPanel;
 import com.google.gwt.user.client.ui.TextArea;
@@ -43,17 +44,22 @@ public class RegisterOrganizadorView extends ViewImpl implements
 	FlexTable email;
 	@UiField
 	FlexTable paginaweb;
+	@UiField
+	FileUpload logo;
+	@UiField
+	Button registrar;
+	
 	Button masTelefono = new Button("+");
 	Button masDireccion = new Button("+");
 	Button masEmail = new Button("+");
 	Button masPaginaweb = new Button("+");
-	Button menosTelefono = new Button("x");
-	Button menosDireccion = new Button("x");
-	Button menosEmail = new Button("x");
-	Button menosPaginaweb = new Button("x");
 
 	public Button getMasTelefono() {
 		return masTelefono;
+	}
+
+	public Button getRegistrar() {
+		return registrar;
 	}
 
 	public Button getMasDireccion() {
@@ -66,44 +72,6 @@ public class RegisterOrganizadorView extends ViewImpl implements
 
 	public Button getMasPaginaweb() {
 		return masPaginaweb;
-	}
-
-	public Button getMenosTelefono() {
-		return menosTelefono;
-	}
-
-	public Button getMenosDireccion() {
-		return menosDireccion;
-	}
-
-	public Button getMenosEmail() {
-		return menosEmail;
-	}
-
-	public Button getMenosPaginaweb() {
-		return menosPaginaweb;
-	}
-
-	@Override
-	public void setInSlot(Object slot, Widget content) {
-		// TODO Auto-generated method stub
-		if (slot == WidgetOrganizadorPresenter.SLOT_Contacto) {
-			setContactoContent(content);
-		} else {
-			super.setInSlot(slot, content);
-		}
-
-	}
-
-	@Override
-	public void addToSlot(Object slot, Widget content) {
-		// TODO Auto-generated method stub
-		if (slot == WidgetOrganizadorPresenter.SLOT_Contacto) {
-			addContactoContent(content);
-		} else {
-			super.addToSlot(slot, content);
-		}
-
 	}
 
 	public void setContactoContent(Widget content) {
@@ -143,6 +111,10 @@ public class RegisterOrganizadorView extends ViewImpl implements
 
 	public FlexTable getPaginaweb() {
 		return paginaweb;
+	}
+
+	public FileUpload getLogo() {
+		return logo;
 	}
 
 }

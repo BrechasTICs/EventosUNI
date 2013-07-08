@@ -26,105 +26,111 @@ import com.googlecode.objectify.annotation.Index;
 
 @Entity
 public class CurrentUser extends BaseEntity {
-    /**
+	/**
 	 * 
 	 */
 	private static final long serialVersionUID = 1L;
-	
+
 	private Boolean isAdmin;
 	private Boolean isPublisher;
 	private Boolean isGuest;
+	private Boolean isLoggedin;
 	private String userId;
-    @Index private String email;
-    @Ignore private String logoutUrl;
-    @Ignore private String loginUrl;
-    private String nickname;
+	@Index
+	private String email;
+	@Ignore
+	private String logoutUrl;
+	@Ignore
+	private String loginUrl;
+	private String nickname;
 	private String universidad;
 	private String facultad;
 
-    public CurrentUser() {
-        isAdmin = false;
-        isPublisher = false;
-        isGuest = false;
-        email="---";
-        loginUrl = "---";
-        logoutUrl = "---";
-        nickname="---";
-    	universidad="---";
-    	facultad="---";
+	public CurrentUser() {
+		isAdmin = false;
+		isPublisher = false;
+		isGuest = false;
+		email = "---";
+		loginUrl = "---";
+		logoutUrl = "---";
+		nickname = "---";
+		universidad = "---";
+		facultad = "---";
 		start();
 		set_kindName("CurrentUser");
-    }
-    public CurrentUserDto getDto(){
-    	CurrentUserDto dto = new CurrentUserDto();
-    	dto.setIsAdmin(isAdmin);
-    	dto.setIsPublisher(isPublisher);
-        dto.setIsGuest(isGuest);
-        dto.setEmail(email);
-        dto.setLogoutUrl(logoutUrl);
-        dto.setLoginUrl(loginUrl);
-        dto.setNickname(nickname);
-        dto.setUniversidad(universidad);
-    	dto.setFacultad(facultad);
-    	return dto;
-    }
-    public void setDto(CurrentUserDto dto){
-    	isAdmin=dto.isAdmin();
-    	isPublisher=dto.isPublisher();
-    	isGuest=dto.isGuest();
-    	email=dto.getEmail();
-    	logoutUrl=dto.getLogoutUrl();
-    	loginUrl=dto.getLoginUrl();
-    	nickname=dto.getNickname();
-    	universidad=dto.getUniversidad();
-    	facultad=dto.getFacultad();
-    	id=dto.getEmail();
-    	userId="USER: " + UUID.randomUUID().toString();
-    }
+	}
 
-    public Boolean isAdmin() {
-        return isAdmin;
-    }
-    
-    public void setLogoutUrl(String logoutUrl) {
-        this.logoutUrl = logoutUrl;
-    }
+	public CurrentUserDto getDto() {
+		CurrentUserDto dto = new CurrentUserDto();
+		dto.setIsAdmin(isAdmin);
+		dto.setIsPublisher(isPublisher);
+		dto.setIsGuest(isGuest);
+		dto.setEmail(email);
+		dto.setLogoutUrl(logoutUrl);
+		dto.setLoginUrl(loginUrl);
+		dto.setNickname(nickname);
+		dto.setUniversidad(universidad);
+		dto.setFacultad(facultad);
+		return dto;
+	}
 
-    public String getLogoutUrl() {
-        return logoutUrl;
-    }
+	public void setDto(CurrentUserDto dto) {
+		isAdmin = dto.isAdmin();
+		isPublisher = dto.isPublisher();
+		isGuest = dto.isGuest();
+		email = dto.getEmail();
+		logoutUrl = dto.getLogoutUrl();
+		loginUrl = dto.getLoginUrl();
+		nickname = dto.getNickname();
+		universidad = dto.getUniversidad();
+		facultad = dto.getFacultad();
+		id = dto.getEmail();
+		userId = "USER: " + UUID.randomUUID().toString();
+	}
 
-    public void setLoginUrl(String loginUrl) {
-        this.loginUrl = loginUrl;
-    }
+	public Boolean isAdmin() {
+		return isAdmin;
+	}
 
-    public String getLoginUrl() {
-        return loginUrl;
-    }
+	public void setLogoutUrl(String logoutUrl) {
+		this.logoutUrl = logoutUrl;
+	}
 
-    public void setNickname(String nickname) {
-        this.nickname = nickname;
-    }
+	public String getLogoutUrl() {
+		return logoutUrl;
+	}
 
-    public String getNickname() {
-        return nickname;
-    }
+	public void setLoginUrl(String loginUrl) {
+		this.loginUrl = loginUrl;
+	}
 
-    public void copyFrom(CurrentUser currentUser) {
-        isAdmin = currentUser.isAdmin;
-        isPublisher=currentUser.isPublisher;
-        isGuest=currentUser.isGuest;
-        email = currentUser.email;
-        logoutUrl = currentUser.logoutUrl;
-        loginUrl = currentUser.loginUrl;
-        nickname = currentUser.nickname;
-        universidad=currentUser.universidad;
-    	facultad=currentUser.facultad;
-    }
+	public String getLoginUrl() {
+		return loginUrl;
+	}
 
-    public void setIsAdmin(Boolean isAdmin) {
-        this.isAdmin = isAdmin;
-    }
+	public void setNickname(String nickname) {
+		this.nickname = nickname;
+	}
+
+	public String getNickname() {
+		return nickname;
+	}
+
+	public void copyFrom(CurrentUser currentUser) {
+		isAdmin = currentUser.isAdmin;
+		isPublisher = currentUser.isPublisher;
+		isGuest = currentUser.isGuest;
+		email = currentUser.email;
+		logoutUrl = currentUser.logoutUrl;
+		loginUrl = currentUser.loginUrl;
+		nickname = currentUser.nickname;
+		universidad = currentUser.universidad;
+		facultad = currentUser.facultad;
+	}
+
+	public void setIsAdmin(Boolean isAdmin) {
+		this.isAdmin = isAdmin;
+	}
 
 	public String getEmail() {
 		return email;
@@ -149,22 +155,36 @@ public class CurrentUser extends BaseEntity {
 	public void setFacultad(String facultad) {
 		this.facultad = facultad;
 	}
+
 	public Boolean isPublisher() {
 		return isPublisher;
 	}
+
 	public void setIsPublisher(Boolean isPublisher) {
 		this.isPublisher = isPublisher;
 	}
+
 	public Boolean isGuest() {
 		return isGuest;
 	}
+
 	public void setIsGuest(Boolean isGuest) {
 		this.isGuest = isGuest;
 	}
+
 	public String getUserId() {
 		return userId;
 	}
+
 	public void setUserId(String userId) {
 		this.userId = userId;
+	}
+
+	public Boolean isLoggedin() {
+		return isLoggedin;
+	}
+
+	public void setIsLoggedin(Boolean isLoggedin) {
+		this.isLoggedin = isLoggedin;
 	}
 }

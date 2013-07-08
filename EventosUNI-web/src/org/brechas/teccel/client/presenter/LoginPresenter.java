@@ -2,6 +2,8 @@ package org.brechas.teccel.client.presenter;
 
 import org.brechas.teccel.client.action.SignInAction;
 import org.brechas.teccel.client.action.SignInActionResult;
+import org.brechas.teccel.client.action.SignOutAction;
+import org.brechas.teccel.client.action.SignOutActionResult;
 import org.brechas.teccel.client.event.EmailEvent;
 import org.brechas.teccel.client.event.EmailEvent.EmailHandler;
 
@@ -28,7 +30,7 @@ public class LoginPresenter extends PresenterWidget<LoginPresenter.MyView>
 		public void onClick(ClickEvent event) {
 			// TODO Auto-generated method stub
 			online = false;
-			redirect(logouturl);
+			dispatchAsync.execute(signOutAction, signOutActionCallback);
 		}
 	};
 
@@ -58,6 +60,8 @@ public class LoginPresenter extends PresenterWidget<LoginPresenter.MyView>
 	@Inject
 	SignInAction signInAction;
 	@Inject
+	SignOutAction signOutAction;
+	@Inject
 	EmailEvent emailEvent;
 
 	@Override
@@ -81,7 +85,17 @@ public class LoginPresenter extends PresenterWidget<LoginPresenter.MyView>
 				getView().getNickname().setText(result.getUser().getEmail());
 				logouturl = result.getUser().getLogoutUrl();
 				online = true;
+				signOutAction.setEmail(result.getUser().getEmail());
 			}
+		}
+	};
+	private AsyncCallback<SignOutActionResult> signOutActionCallback = new AsyncCallback<SignOutActionResult>() {
+		public void onFailure(Throwable caught) {
+			Window.alert("Usuario eliminado(?): " + caught.getMessage());
+		}
+
+		public void onSuccess(SignOutActionResult result) {
+			redirect(logouturl);
 		}
 	};
 

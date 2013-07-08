@@ -25,6 +25,14 @@
 							<g:TextArea width="238" ui:field="descripcion" />
 						</g:customCell>
 					</g:row>
+					<g:row>
+						<g:customCell>
+							<g:Label text="Afiche"/>
+						</g:customCell>
+						<g:customCell>
+							<g:FileUpload ui:field="logo" />
+						</g:customCell>
+					</g:row>
 				</g:Grid>
 			</g:FormPanel>
 			<g:HTMLPanel ui:field="panelContacto">
@@ -37,6 +45,10 @@
 				<g:FlexTable ui:field="paginaweb">
 				</g:FlexTable>
 			</g:HTMLPanel>
+			<g:HorizontalPanel>
+			<g:Button text="Registrar" ui:field="registrar" >
+			</g:Button>
+			</g:HorizontalPanel>
 		</g:VerticalPanel>
 	</g:HTMLPanel>
 </ui:UiBinder>

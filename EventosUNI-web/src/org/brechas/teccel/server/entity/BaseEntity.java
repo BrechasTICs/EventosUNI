@@ -21,9 +21,7 @@ import java.util.Date;
 import org.brechas.teccel.server.beans.EntityDto;
 import org.brechas.teccel.shared.entity.Dto;
 
-import com.google.inject.Inject;
 import com.googlecode.objectify.annotation.Id;
-import com.googlecode.objectify.annotation.Ignore;
 
 public abstract class BaseEntity implements Dto {
     /**

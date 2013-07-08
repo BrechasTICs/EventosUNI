@@ -36,39 +36,34 @@ public class SignInActionActionHandler implements
 			user = ofy().load().type(CurrentUser.class)
 					.filter("email", usergae.getEmail()).first().safe();
 			if (!user.isAdmin() && userService.isUserAdmin()) {
-				user.setIsAdmin(userService.isUserAdmin());
-				user.setNickname(usergae.getEmail());
+				user.setIsAdmin(true);
+				user.setNickname(usergae.getNickname());
 				user.set_updatedAt(new Date());
-				ofy().save().entity(user);
 			}
 		} catch (NotFoundException e) {
 			user = new CurrentUser();
 			user.set_createdAt(new Date());
 			user.setIsAdmin(userService.isUserAdmin());
-			user.setEmail(usergae.getEmail());
-			user.setNickname(usergae.getEmail());
-			user.setLogoutUrl((userService.createLogoutURL(action.getRequest())));
+			user.setEmail(usergae.getEmail());		
 			user.setNickname(usergae.getNickname());
-			user.setLoginUrl(userService.createLoginURL(action.getRequest()));
 			user.setId(user.getEmail());
 			user.setUserId("USER: " + UUID.randomUUID().toString());
 			user.set_createdBy("9leinad0@gmail.com");
 			if (user.isAdmin()) {
 				user.setFacultad("FIIS");
 				user.setUniversidad("UNI");
-				user.setIsGuest(false);
 			} else {
 				user.setFacultad("---");
 				user.setUniversidad("---");
 				user.setIsGuest(true);
 			}
-			user.setIsPublisher(false);
-			user.set_kindName("CurrentUser");
 			user.set_owner("USER: " + UUID.randomUUID().toString());
-			user.set_updatedAt(new Date());
 			user.set_updatedBy("9leinad0@gmail.com");
-			ofy().save().entity(user);
 		}
+		user.setLogoutUrl((userService.createLogoutURL(action.getRequest())));
+		user.setLoginUrl(userService.createLoginURL(action.getRequest()));
+		user.setIsLoggedin(true);
+		ofy().save().entity(user);
 		return new SignInActionResult(user.getDto());
 	}
 

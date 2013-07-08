@@ -3,26 +3,11 @@ package org.brechas.teccel.client.presenter;
 import java.util.ArrayList;
 import java.util.List;
 
-import com.gwtplatform.dispatch.shared.DispatchAsync;
-import com.gwtplatform.mvp.client.Presenter;
-import com.gwtplatform.mvp.client.View;
-import com.gwtplatform.mvp.client.annotations.ProxyCodeSplit;
-import com.gwtplatform.mvp.client.annotations.NameToken;
-
-import org.brechas.teccel.client.action.SignInActionResult;
-import org.brechas.teccel.client.place.NameTokens;
-import com.gwtplatform.mvp.client.proxy.ProxyPlace;
-import com.google.inject.Inject;
-import com.google.gwt.event.shared.EventBus;
-import com.google.gwt.user.client.Window;
-import com.google.gwt.user.client.rpc.AsyncCallback;
-import com.gwtplatform.mvp.client.proxy.RevealContentEvent;
-import org.brechas.teccel.client.presenter.LayoutPresenter;
 import org.brechas.teccel.client.action.PublicarEventoAction;
 import org.brechas.teccel.client.action.PublicarEventoActionResult;
 import org.brechas.teccel.client.event.EmailEvent;
 import org.brechas.teccel.client.event.EmailEvent.EmailHandler;
-import org.brechas.teccel.server.entity.Lugar;
+import org.brechas.teccel.client.place.NameTokens;
 import org.brechas.teccel.shared.entity.ActividadDto;
 import org.brechas.teccel.shared.entity.ContactoDto;
 import org.brechas.teccel.shared.entity.EventoDto;
@@ -30,6 +15,18 @@ import org.brechas.teccel.shared.entity.LugarDto;
 import org.brechas.teccel.shared.entity.OrganizadorDto;
 import org.brechas.teccel.shared.entity.TiempoDto;
 import org.brechas.teccel.shared.entity.TipoEventoDto;
+
+import com.google.gwt.event.shared.EventBus;
+import com.google.gwt.user.client.Window;
+import com.google.gwt.user.client.rpc.AsyncCallback;
+import com.google.inject.Inject;
+import com.gwtplatform.dispatch.shared.DispatchAsync;
+import com.gwtplatform.mvp.client.Presenter;
+import com.gwtplatform.mvp.client.View;
+import com.gwtplatform.mvp.client.annotations.NameToken;
+import com.gwtplatform.mvp.client.annotations.ProxyCodeSplit;
+import com.gwtplatform.mvp.client.proxy.ProxyPlace;
+import com.gwtplatform.mvp.client.proxy.RevealContentEvent;
 
 public class ViewEventPresenter extends
 		Presenter<ViewEventPresenter.MyView, ViewEventPresenter.MyProxy> implements EmailHandler{
@@ -43,6 +40,9 @@ public class ViewEventPresenter extends
 	@NameToken(NameTokens.viewevent)
 	public interface MyProxy extends ProxyPlace<ViewEventPresenter> {
 	}
+	
+	@Inject DispatchAsync dispatchAsync;
+	@Inject PublicarEventoAction publicar;
 
 	@Inject
 	public ViewEventPresenter(final EventBus eventBus, final MyView view,
@@ -50,9 +50,6 @@ public class ViewEventPresenter extends
 		super(eventBus, view, proxy);
 		this.eventBus=eventBus;
 	}
-
-	@Inject DispatchAsync dispatchAsync;
-	@Inject PublicarEventoAction publicar;
 	
 	@Override
 	protected void revealInParent() {
@@ -68,7 +65,7 @@ public class ViewEventPresenter extends
 
 	public void onEmail(EmailEvent event) {
 	    email=event.getEmail();
-	  }
+	}
 	
 	@Override
 	protected void onHide() {
@@ -111,8 +108,7 @@ public class ViewEventPresenter extends
 	}
 
 	private AsyncCallback<PublicarEventoActionResult> publicarActionCallback = new AsyncCallback<PublicarEventoActionResult>() {
-		public void onFailure(Throwable caught) {
-		
+		public void onFailure(Throwable caught) {		
 			Window.alert("Error: " + caught.getMessage());
 		};
 

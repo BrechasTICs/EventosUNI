@@ -1,2 +1,3 @@
 # Module eventosuni
 # RPC service class, partial path of RPC policy file
+com.gwtplatform.dispatch.shared.DispatchService, B8466E74AF5BCBD442893F30D2063D48.gwt.rpc

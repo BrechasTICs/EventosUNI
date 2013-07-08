@@ -5,8 +5,10 @@ import java.util.UUID;
 
 import org.brechas.teccel.shared.entity.TiempoDto;
 
+import com.googlecode.objectify.Ref;
 import com.googlecode.objectify.annotation.Entity;
 import com.googlecode.objectify.annotation.Index;
+import com.googlecode.objectify.annotation.Load;
 
 @Entity
 public class Tiempo extends BaseEntity {
@@ -17,7 +19,16 @@ public class Tiempo extends BaseEntity {
 	@Index private Date horaFin;
 	private String timeZoneInicio;
 	private String timeZoneFin;
+	@Load
+	private Ref<Actividad> actividad;
+	
+	public Ref<Actividad> getActividad() {
+		return actividad;
+	}
 
+	public void setActividad(Ref<Actividad> actividad) {
+		this.actividad = actividad;
+	}
 	public Tiempo() {
 		start();
 		set_kindName("Tiempo");

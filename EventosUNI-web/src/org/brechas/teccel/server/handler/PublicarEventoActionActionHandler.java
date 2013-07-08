@@ -71,32 +71,35 @@ public class PublicarEventoActionActionHandler implements
 			org.up(user);
 			org.setDto(action.getListOrganizador().get(i));
 			listOrganizador.add(org);
-			listOrganizador.get(i).getEvento().add(Ref.create(evento));
-			evento.getOrganizador().add(Ref.create(listOrganizador.get(i)));
+			org.getEvento().add(Ref.create(evento));
+			evento.getOrganizador().add(Ref.create(org));
 			for(j=0;j<action.getListContacto().get(i).size();j++){
 				con = new Contacto();
 				con.up(user);
 				con.setDto(action.getListContacto().get(i).get(j));
+				con.setOrganizador(Ref.create(org));
 				listCon.add(con);
-				listOrganizador.get(i).getContacto().add(Ref.create(listCon.get(j)));				
+				org.getContacto().add(Ref.create(con));				
 			}
 		}
 		for(i=0;i<action.getListActividad().size();i++){
 			act= new Actividad();
 			act.up(user);
-			act.setDto(action.getListActividad().get(i));
-			listActividad.add(act);
+			act.setDto(action.getListActividad().get(i));			
 			lug = new Lugar();
 			lug.up(user);
-			lug.setDto(action.getListLugar().get(i));
-			listLugar.add(lug);
+			lug.setDto(action.getListLugar().get(i));			
 			tie=new Tiempo();
 			tie.up(user);
-			tie.setDto(action.getListTiempo().get(i));
+			tie.setDto(action.getListTiempo().get(i));			
+			act.setLugar(Ref.create(lug));
+			act.setTiempo(Ref.create(tie));
+			lug.setActividad(Ref.create(act));
+			tie.setActividad(Ref.create(act));
+			evento.getActividad().add((Ref.create(act)));
+			listActividad.add(act);
+			listLugar.add(lug);
 			listTiempo.add(tie);
-			listActividad.get(i).setLugar(Ref.create(listLugar.get(i)));
-			listActividad.get(i).setTiempo(Ref.create(listTiempo.get(i)));
-			evento.getActividad().add((Ref.create(listActividad.get(i))));
 		}
 		/**
 		 * Salvaguardarlos

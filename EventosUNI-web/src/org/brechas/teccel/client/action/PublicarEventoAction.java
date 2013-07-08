@@ -23,6 +23,7 @@ public class PublicarEventoAction extends
 	private List<TiempoDto> listTiempo=new ArrayList<TiempoDto>();
 	private EventoDto evento;
 	private TipoEventoDto tipoEvento;
+	private String request;
 	public PublicarEventoAction() {
 	}
 	public List<OrganizadorDto> getListOrganizador() {
@@ -67,7 +68,6 @@ public class PublicarEventoAction extends
 	public void setListContacto(List<List<ContactoDto>> listContacto) {
 		this.listContacto = listContacto;
 	}
-	private String request;
 	
 	public String getRequest() {
 		return request;
