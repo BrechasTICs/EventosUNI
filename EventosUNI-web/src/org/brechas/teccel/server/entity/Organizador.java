@@ -16,6 +16,7 @@ public class Organizador extends BaseEntity {
 	private static final long serialVersionUID = 3145502731223640453L;
 
     @Index private String nombre;
+    private String acronimo;
 	private String descripcion;
 	private String logoBlobKey;
 	private String logoUrl;
@@ -49,6 +50,7 @@ public class Organizador extends BaseEntity {
 		nombre=dto.getNombre();
 		descripcion=dto.getDescripcion();
 		logoUrl=dto.getLogoUrl();
+		acronimo=dto.getAcronimo();
 		id=CLOUD_ENTITY_ID_PREFIX+UUID.randomUUID().toString();
 	}
 
@@ -78,5 +80,11 @@ public class Organizador extends BaseEntity {
 	}
 	public void setLogoUrl(String logoUrl) {
 		this.logoUrl = logoUrl;
+	}
+	public String getAcronimo() {
+		return acronimo;
+	}
+	public void setAcronimo(String acronimo) {
+		this.acronimo = acronimo;
 	}
 }

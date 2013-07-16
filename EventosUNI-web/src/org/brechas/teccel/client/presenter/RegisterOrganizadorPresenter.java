@@ -2,6 +2,8 @@ package org.brechas.teccel.client.presenter;
 
 import java.util.ArrayList;
 
+import org.brechas.teccel.client.action.BlobStoreUrl;
+import org.brechas.teccel.client.action.BlobStoreUrlResult;
 import org.brechas.teccel.client.action.RegisterOrganizador;
 import org.brechas.teccel.client.action.RegisterOrganizadorResult;
 import org.brechas.teccel.client.event.EmailEvent;
@@ -19,10 +21,13 @@ import com.google.gwt.user.client.rpc.AsyncCallback;
 import com.google.gwt.user.client.ui.Button;
 import com.google.gwt.user.client.ui.FileUpload;
 import com.google.gwt.user.client.ui.FlexTable;
+import com.google.gwt.user.client.ui.FormPanel;
+import com.google.gwt.user.client.ui.FormPanel.SubmitCompleteHandler;
 import com.google.gwt.user.client.ui.HTMLPanel;
 import com.google.gwt.user.client.ui.Label;
 import com.google.gwt.user.client.ui.TextArea;
 import com.google.gwt.user.client.ui.TextBox;
+import com.google.gwt.user.client.ui.FormPanel.SubmitCompleteEvent;
 import com.google.inject.Inject;
 import com.gwtplatform.dispatch.shared.DispatchAsync;
 import com.gwtplatform.mvp.client.Presenter;
@@ -45,6 +50,10 @@ public class RegisterOrganizadorPresenter
 	private String email;
 
 	public interface MyView extends View {
+		public FormPanel getUploadForm();
+
+		public TextBox getAcronimo();
+
 		public TextBox getNombre();
 
 		public TextArea getDescripcion();
@@ -81,6 +90,8 @@ public class RegisterOrganizadorPresenter
 	DispatchAsync dispatchAsync;
 	@Inject
 	RegisterOrganizador regOrganizador;
+	@Inject
+	BlobStoreUrl blobStoreUrl;
 
 	@Inject
 	public RegisterOrganizadorPresenter(final EventBus eventBus,
@@ -140,6 +151,7 @@ public class RegisterOrganizadorPresenter
 		getView().getPaginaweb().setWidget(row, 0, new Label("Pagina Web "));
 		getView().getPaginaweb().setWidget(row, 1, new TextBox());
 		getView().getPaginaweb().setWidget(row, 2, getView().getMasPaginaweb());
+		getView().getUploadForm().addSubmitCompleteHandler(uploadImageHandler);
 		RegisterOrganizadorPresenter.this.eventBus.fireEvent(emailEvent);
 	}
 
@@ -237,15 +249,19 @@ public class RegisterOrganizadorPresenter
 		}
 	};
 	ClickHandler regHandler = new ClickHandler() {
-		
+
 		@Override
 		public void onClick(ClickEvent event) {
 			int i;
 			ContactoDto con;
 			regOrganizador.setRequest(email);
 			regOrganizador.setOrganizador(new OrganizadorDto());
-			regOrganizador.getOrganizador().setDescripcion(getView().getDescripcion().getValue());
-			regOrganizador.getOrganizador().setNombre(getView().getNombre().getText());
+			regOrganizador.getOrganizador().setDescripcion(
+					getView().getDescripcion().getValue());
+			regOrganizador.getOrganizador().setNombre(
+					getView().getNombre().getText());
+			regOrganizador.getOrganizador().setAcronimo(
+					getView().getAcronimo().getText());
 			for (i = 0; i < getView().getTelefono().getRowCount(); i++) {
 				String val = ((TextBox) getView().getTelefono().getWidget(i, 1))
 						.getText();
@@ -257,8 +273,8 @@ public class RegisterOrganizadorPresenter
 				}
 			}
 			for (i = 0; i < getView().getDireccion().getRowCount(); i++) {
-				String val = ((TextBox) getView().getDireccion().getWidget(i, 1))
-						.getText();
+				String val = ((TextBox) getView().getDireccion()
+						.getWidget(i, 1)).getText();
 				if (!val.trim().equals("")) {
 					con = new ContactoDto();
 					con.setTipo("Direccion");
@@ -277,8 +293,8 @@ public class RegisterOrganizadorPresenter
 				}
 			}
 			for (i = 0; i < getView().getPaginaweb().getRowCount(); i++) {
-				String val = ((TextBox) getView().getPaginaweb().getWidget(i, 1))
-						.getText();
+				String val = ((TextBox) getView().getPaginaweb()
+						.getWidget(i, 1)).getText();
 				if (!val.trim().equals("")) {
 					con = new ContactoDto();
 					con.setTipo("Pagina Web");
@@ -289,14 +305,35 @@ public class RegisterOrganizadorPresenter
 			dispatchAsync.execute(regOrganizador, registerActionCallback);
 		}
 	};
+	SubmitCompleteHandler uploadImageHandler = new FormPanel.SubmitCompleteHandler() {
+
+		@Override
+		public void onSubmitComplete(SubmitCompleteEvent event) {
+			Window.alert("Gooood!");
+			// String key = event.getResults();
+		}
+	};
 	private AsyncCallback<RegisterOrganizadorResult> registerActionCallback = new AsyncCallback<RegisterOrganizadorResult>() {
 		public void onFailure(Throwable caught) {
-		
-			Window.alert("Error: " + caught.getMessage());
+
+			Window.alert("Error Data: " + caught.getMessage());
 		};
 
 		public void onSuccess(RegisterOrganizadorResult result) {
-			Window.alert("Gooood!");
+			Window.alert("Bien! Organizador Registrado");
+			dispatchAsync.execute(blobStoreUrl, blobStoreUrlCallback);
+		}
+	};
+	private AsyncCallback<BlobStoreUrlResult> blobStoreUrlCallback = new AsyncCallback<BlobStoreUrlResult>() {
+		public void onFailure(Throwable caught) {
+			Window.alert("Error Blob: " + caught.getMessage());
+		};
+
+		public void onSuccess(BlobStoreUrlResult result) {
+			getView().getUploadForm().setAction(result.getUploadUrl());
+			getView().getUploadForm().setEncoding(FormPanel.ENCODING_MULTIPART);
+			getView().getUploadForm().setMethod(FormPanel.METHOD_POST);
+			getView().getUploadForm().submit();
 		}
 	};
 

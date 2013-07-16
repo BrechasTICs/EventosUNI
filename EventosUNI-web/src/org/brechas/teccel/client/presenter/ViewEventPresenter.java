@@ -104,7 +104,7 @@ public class ViewEventPresenter extends
 		publicar.setListOrganizador(listOrganizador);
 		publicar.setListTiempo(listTiempo);
 		publicar.setTipoEvento(new TipoEventoDto());
-		dispatchAsync.execute(publicar, publicarActionCallback);		
+		//dispatchAsync.execute(publicar, publicarActionCallback);		
 	}
 
 	private AsyncCallback<PublicarEventoActionResult> publicarActionCallback = new AsyncCallback<PublicarEventoActionResult>() {

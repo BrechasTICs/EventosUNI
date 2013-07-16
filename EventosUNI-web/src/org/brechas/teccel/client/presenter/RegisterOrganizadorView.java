@@ -1,16 +1,19 @@
 package org.brechas.teccel.client.presenter;
 
 import com.gwtplatform.mvp.client.ViewImpl;
+import com.google.gwt.core.client.GWT;
 import com.google.gwt.uibinder.client.UiBinder;
 import com.google.gwt.uibinder.client.UiField;
 import com.google.gwt.user.client.ui.Button;
 import com.google.gwt.user.client.ui.FileUpload;
 import com.google.gwt.user.client.ui.FlexTable;
+import com.google.gwt.user.client.ui.FormPanel.SubmitCompleteEvent;
 import com.google.gwt.user.client.ui.HTMLPanel;
 import com.google.gwt.user.client.ui.TextArea;
 import com.google.gwt.user.client.ui.TextBox;
 import com.google.gwt.user.client.ui.Widget;
 import com.google.inject.Inject;
+import com.google.gwt.user.client.ui.FormPanel;
 
 public class RegisterOrganizadorView extends ViewImpl implements
 		RegisterOrganizadorPresenter.MyView {
@@ -33,6 +36,8 @@ public class RegisterOrganizadorView extends ViewImpl implements
 	@UiField
 	TextBox nombre;
 	@UiField
+	TextBox acronimo;
+	@UiField
 	TextArea descripcion;
 	@UiField
 	HTMLPanel panelContacto;
@@ -48,7 +53,13 @@ public class RegisterOrganizadorView extends ViewImpl implements
 	FileUpload logo;
 	@UiField
 	Button registrar;
-	
+	@UiField
+	FormPanel uploadForm;
+
+	public FormPanel getUploadForm() {
+		return uploadForm;
+	}
+
 	Button masTelefono = new Button("+");
 	Button masDireccion = new Button("+");
 	Button masEmail = new Button("+");
@@ -87,6 +98,9 @@ public class RegisterOrganizadorView extends ViewImpl implements
 
 	public TextBox getNombre() {
 		return nombre;
+	}
+	public TextBox getAcronimo() {
+		return acronimo;
 	}
 
 	public TextArea getDescripcion() {

@@ -9,6 +9,8 @@ import org.brechas.teccel.client.action.RegisterOrganizador;
 import org.brechas.teccel.server.handler.RegisterOrganizadorActionHandler;
 import org.brechas.teccel.client.action.SignOutAction;
 import org.brechas.teccel.server.handler.SignOutActionActionHandler;
+import org.brechas.teccel.client.action.BlobStoreUrl;
+import org.brechas.teccel.server.handler.BlobStoreUrlActionHandler;
 
 public class ServerModule extends HandlerModule {
 
@@ -25,5 +27,7 @@ public class ServerModule extends HandlerModule {
 				RegisterOrganizadorActionHandler.class);
 
 		bindHandler(SignOutAction.class, SignOutActionActionHandler.class);
+
+		bindHandler(BlobStoreUrl.class, BlobStoreUrlActionHandler.class);
 	}
 }

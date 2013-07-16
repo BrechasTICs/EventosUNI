@@ -7,6 +7,7 @@ public class OrganizadorDto implements Dto {
 	private String nombre;
 	private String descripcion;
 	private String logoUrl;
+	private String acronimo;
 	
 	public OrganizadorDto() {
 	}
@@ -33,5 +34,13 @@ public class OrganizadorDto implements Dto {
 
 	public void setLogoUrl(String logoUrl) {
 		this.logoUrl = logoUrl;
+	}
+
+	public String getAcronimo() {
+		return acronimo;
+	}
+
+	public void setAcronimo(String acronimo) {
+		this.acronimo = acronimo;
 	}
 }

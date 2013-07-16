@@ -19,5 +19,6 @@ public class Module extends AbstractModule {
 		bind(SystemServiceServlet.class).in(Singleton.class);
 		bind(ProspectiveSearchServlet.class).in(Singleton.class);
 		bind(ConfigurationServlet.class).in(Singleton.class);
+		bind(UploadServlet.class).in(Singleton.class);
 	}
 }

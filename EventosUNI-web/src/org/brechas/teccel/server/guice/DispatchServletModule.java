@@ -20,6 +20,6 @@ public class DispatchServletModule extends ServletModule {
 		serve("/_ah/spi/*").with(SystemServiceServlet.class,ImmutableMap.of("services","org.brechas.teccel.server.spi.EndpointV1"));
 		serve("/_ah/prospective_search").with(ProspectiveSearchServlet.class);
 		serve("/admin/cconf").with(ConfigurationServlet.class);
-		
+		serve("/upload").with(UploadServlet.class);
 	}
 }

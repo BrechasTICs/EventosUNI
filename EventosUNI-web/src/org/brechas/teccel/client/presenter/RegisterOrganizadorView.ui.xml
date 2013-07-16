@@ -7,14 +7,22 @@
 
 	<g:HTMLPanel>
 		<g:VerticalPanel>
-			<g:FormPanel>
+			<g:FormPanel ui:field="uploadForm">
 				<g:Grid>
 					<g:row>
 						<g:customCell>
-							<g:Label text="Nombre del Organizador" />
+							<g:Label text="Nombre" />
 						</g:customCell>
 						<g:customCell>
-							<g:TextBox ui:field="nombre" />
+							<g:TextBox ui:field="nombre" name="name"/>
+						</g:customCell>
+					</g:row>
+					<g:row>
+						<g:customCell>
+							<g:Label text="Acrónimo" />
+						</g:customCell>
+						<g:customCell>
+							<g:TextBox ui:field="acronimo"/>
 						</g:customCell>
 					</g:row>
 					<g:row>
@@ -30,7 +38,7 @@
 							<g:Label text="Afiche"/>
 						</g:customCell>
 						<g:customCell>
-							<g:FileUpload ui:field="logo" />
+							<g:FileUpload ui:field="logo" name="image" />
 						</g:customCell>
 					</g:row>
 				</g:Grid>
